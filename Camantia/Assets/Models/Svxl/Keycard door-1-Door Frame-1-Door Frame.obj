@@ -4,7 +4,7 @@
 o Door Frame
 
 # material
-mtllib Keycard door-1-Door Frame.mtl
+mtllib Keycard door-1-Door Frame-1-Door Frame.mtl
 usemtl palette
 
 # normals
