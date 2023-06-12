@@ -2556,3 +2556,123 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 6903.181326 seconds.
+  path: Assets/Models/Camera.ply
+  artifactKey: Guid(96c14978a1d19d74180a576ab72d97d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Camera.ply using Guid(96c14978a1d19d74180a576ab72d97d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46831cf9b52195d2477f1fccb4d2da2d') in 0.485195 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 24.962157 seconds.
+  path: Assets/Models/Apt-0.mtl
+  artifactKey: Guid(7d8bfb76cea61ce49abd2a5a61de5188) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Apt-0.mtl using Guid(7d8bfb76cea61ce49abd2a5a61de5188) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bc9b80b1f590648efb9b13ee3ad9904') in 0.002776 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 132.961624 seconds.
+  path: Assets/Models/Svxl
+  artifactKey: Guid(bcb3b31aa27128847a24f6275c8111c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Svxl using Guid(bcb3b31aa27128847a24f6275c8111c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0a608a8fbd0356d96adb4caa207eedf') in 0.003343 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.055503 seconds.
+  path: Assets/Models/Svxl/Camera.obj
+  artifactKey: Guid(ee58f99634ca3b845b9f10a225193de2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Svxl/Camera.obj using Guid(ee58f99634ca3b845b9f10a225193de2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37e2bed6ae3e15cda59062eb42420010') in 0.734130 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Models/Svxl/Keycard door-1-Door Frame.obj
+  artifactKey: Guid(d3ce6074b1d28414eb5c905e573dde9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Svxl/Keycard door-1-Door Frame.obj using Guid(d3ce6074b1d28414eb5c905e573dde9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a724fd1f20b1600acdba5a7af07d57e') in 0.048654 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Models/Svxl/Keycard door-1-Door Frame.png
+  artifactKey: Guid(9cb2f32cabe59bf4cbba0758266369a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Svxl/Keycard door-1-Door Frame.png using Guid(9cb2f32cabe59bf4cbba0758266369a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da9be7774f39d61f15c9e298ee7bbb40') in 0.110760 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Models/Svxl/Camera.png
+  artifactKey: Guid(9cbe399f2222b164ca904d937a94fbe4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Svxl/Camera.png using Guid(9cbe399f2222b164ca904d937a94fbe4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f4a95e2282ecbc1584f96816b1cae2a') in 0.014933 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Models/Svxl/Keycard door-0-Door.obj
+  artifactKey: Guid(7edff11f418b1694d9c35435dc6a4046) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Svxl/Keycard door-0-Door.obj using Guid(7edff11f418b1694d9c35435dc6a4046) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ae4336f4e09cceb02313d766687682a') in 0.042086 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000130 seconds.
+  path: Assets/Models/Svxl/Keycard door-0-Door.png
+  artifactKey: Guid(e795e2c4694e2924c8793009c2c7b9fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Svxl/Keycard door-0-Door.png using Guid(e795e2c4694e2924c8793009c2c7b9fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '472526c1f766a585cdb1d15773528d50') in 0.009312 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 113.626689 seconds.
+  path: Assets/Models/Svxl/Keycard door-0-Door.mtl
+  artifactKey: Guid(8e99809ebc29241409dea7d08cfb8fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Svxl/Keycard door-0-Door.mtl using Guid(8e99809ebc29241409dea7d08cfb8fbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95ac0ec05f23da9f7a17357b34e58dca') in 0.003046 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 63.575969 seconds.
+  path: Assets/Models/Svxl/Items
+  artifactKey: Guid(64ffbca7cda51a144916bd41a50f4e56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Svxl/Items using Guid(64ffbca7cda51a144916bd41a50f4e56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db3a1bd93fa4e36fe2f7bf4029ca37f1') in 0.001771 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.062802 seconds.
+  path: Assets/Models/Svxl/Items/Keycard.obj
+  artifactKey: Guid(86a268354c8d9cd4da3093450a39df59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Svxl/Items/Keycard.obj using Guid(86a268354c8d9cd4da3093450a39df59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3f97070cd72bbd88b4c2a0789979ed4') in 0.062137 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Models/Svxl/Items/Keycard.png
+  artifactKey: Guid(fb513ac8e5412934b908ba60e6466348) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Svxl/Items/Keycard.png using Guid(fb513ac8e5412934b908ba60e6466348) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71b601c2dbd05770b43fef802ed16966') in 0.016631 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 28.620175 seconds.
+  path: Assets/Models/Svxl/Keycard door-1-Door Frame.mtl
+  artifactKey: Guid(c23ccf8dc14aa4245b5585f9db4d226a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Svxl/Keycard door-1-Door Frame.mtl using Guid(c23ccf8dc14aa4245b5585f9db4d226a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8aab659f98977d2f5e13cf2cdd189700') in 0.001958 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 13.054063 seconds.
+  path: Assets/Models/Svxl/Camera.mtl
+  artifactKey: Guid(b40f7c613ed408242b9303556003abee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Svxl/Camera.mtl using Guid(b40f7c613ed408242b9303556003abee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6259ad4aa1a0d9695a28e93ec5b64d6') in 0.001173 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
