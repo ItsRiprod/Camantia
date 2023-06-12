@@ -1,0 +1,159 @@
+vbox : (id = 'menu_display' hidden = '1' clip = '0') : (margin = '9 9 0 0') :
+{
+	//----------------
+	// Grid
+	//----------------
+	hbox : (size = '28' clip = '0') :
+	{
+		sw-h1 : (path = '1 1' selected = '0' text = 'Grid' flex = '1')
+		colpick : (bind = [[value = 'pt_grid_col']]) : (size = '16' margin = '0 0 8 8') : (hint = 'Grid Color')
+	}
+
+	vbox : (next = '8') :
+	{
+		hbox : (size = '28') : (hint = 'Grid Spacing') :
+		{
+			h3 : (text = 'Space')
+			tf-v-r : (bind = [[value = 'pt_grid_spa']]) : (size = '40' next ='3')
+			res-i : (range = '1 1024' step = '1' space = '4') : (size = '8')
+		}
+
+		hbox : (size = '28') : (hint = 'Grid Width') :
+		{
+			h3 : (text = 'Width')
+			tf-v-r : (bind = [[value = 'pt_grid_w']] format = 'f.2') : (size = '40')
+			res-f : (range = '0.01 1.0' step = '0.01' space = '4')
+		}
+	
+		hbox : (size = '28') : (hint = 'Only Display Grid on Ground') :
+		{
+			h3 : (text = 'Ground')
+			sw-check : (bind = [[value = 'pt_b_gd_grid']])
+			 : (size = '12')
+		}
+	}
+
+	bar-h
+
+	//----------------
+	// Edge
+	//----------------
+	hbox : (size = '28' clip = '0') :
+	{
+		sw-h1 : (path = '1 1' selected = '0' text = 'Edge' flex = '1')
+		colpick : (bind = [[value = 'pt_edge_col']]) : (size = '16' margin = '0 0 8 8') : (hint = 'Edge Color')
+	}		
+	vbox : (next = '8') :
+	{
+		hbox : (size = '28') : (hint = 'Edge Width') :
+		{
+			h3 : (text = 'Width')
+			tf-v-r : (bind = [[value = 'pt_edge_w']] format = 'f.2') : (size = '40')
+			res-f : (range = '0.01 5.0' step = '0.01' space = '4')
+		}
+	}
+
+	bar-h
+
+	//----------------
+	// Ground
+	//----------------
+	hbox : (size = '28' clip = '0') :
+	{
+		sw-h1 : (path = '1 1' selected = '0' text = 'Ground' flex = '1')
+		colpick : (bind = [[value = 'pt_gd_col']]) : (size = '16' margin = '0 0 8 8') : (hint = 'Ground Color')
+	}
+
+	vbox : (size = '28' next = '8') :
+	{
+		hbox : (size = '28') : (hint = 'Horizon') :
+		{
+			h3 : (text = 'Horizon')
+			tf-v-r : (bind = [[value = 'pt_hor_et']] format = '%') : (size = '40')
+			res-i : (range = '0 100' space = '2')
+		}
+	}
+
+	bar-h
+
+	//----------------
+	// Background
+	//----------------
+	hbox : (size = '28' clip = '0') :
+	{
+		sw-h1 : (path = '1 1' selected = '0' text = 'Background' flex = '1')
+		colpick : (bind = [[value = 'pt_bg_col']]) : (size = '16' margin = '0 0 8 8') : (hint = 'Background Color')
+	}
+
+	vbox : (next = '8') :
+	{
+		hbox : (size = '28') : (hint = 'Transparent Background') :
+		{
+			h3 : (text = 'Transparent')
+			sw-check : (bind = [[value = 'pt_b_bg_a']])
+			 : (size = '12')
+		}
+	}
+
+	bar-h
+
+	//----------------
+	// Voxel Size
+	//----------------
+	sw-h1: (text = 'Scale' selected = '0') : (size = '28')
+	vbox : (next = '8') : (hint = 'Voxel Scale') :
+	{
+		hbox : (size = '28') :
+		{
+			h3 : (text = 'X')
+			tf-v-r : (bind = [[value = 'pt_ws_x']] format = 'f.2') : (size = '40')
+			res-f : (range = '0 10' step = '0.1' space = '4')
+		}
+		hbox : (size = '28') :
+		{
+			h3 : (text = 'Y')
+			tf-v-r : (bind = [[value = 'pt_ws_y']] format = 'f.2') : (size = '40')
+			res-f : (range = '0 100' step = '0.1' space = '4')
+		}
+		hbox : (size = '28') :
+		{
+			h3 : (text = 'Z')
+			tf-v-r : (bind = [[value = 'pt_ws_z']] format = 'f.2') : (size = '40')
+			res-f : (range = '0 100' step = '0.1' space = '4')
+		}
+	}
+	
+	bar-h
+	
+	sw-h1 : (text = 'Shape' selected = '0') : (size = '28')
+	vbox : (next = '8') :
+	{
+		opBox : (bind = [[value = 'pt_prim']] value = 'cube') : (bgColor = '100 100 100' corner = '15' radius = '6') : (next = '6') :
+		{
+			vbox : bg : (corner = '15' radius = '5' margin = '1 1 1 1') :
+			{
+				hbox : (size = '24') :
+				{
+					option : (select_id = 'cube' text = 'Cube' ) : (flex = '1') : (hint = 'Cubic')
+					option : (select_id = 'lego' text = 'Lego' ) : (flex = '1') : (hint = 'Lego')
+				}
+				hbox : (size = '24') :
+				{
+					option : (select_id = 'mc'   text = 'MC'   ) : (flex = '1') : (hint = 'Marching Cubes')
+					option : (select_id = 'clay' text = 'Clay' ) : (flex = '1') : (hint = 'Isosurface')
+				}
+				hbox : (size = '24') :
+				{
+					option : (select_id = 'sphr' text = 'Sphere'  ) : (flex = '1') : (hint = 'Sphere')
+					option : (select_id = 'cyli' text = 'Cylinder') : (flex = '1') : (hint = 'Cylinder')
+				}
+			}
+		}
+		hbox : (size = '28') : (hint = 'Cell Size') :
+		{
+			h3 : (text = 'Cell')
+			tf-v-r : (bind = [[value = 'pt_cell']] format = 'f.2') : (size = '40')
+			res-f : (range = '0 1' step = '0.1' space = '8')
+		}
+	}
+}

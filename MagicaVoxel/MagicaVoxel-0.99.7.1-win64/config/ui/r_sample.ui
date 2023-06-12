@@ -1,0 +1,96 @@
+vbox : (id = 'menu_sample' hidden = '1' clip = '0') : (margin = '9 9 0 0') :
+{
+	sw-h1 : (selected = '1' text = 'Bounce' size = '28')
+	vbox : (next = '6') :
+	{
+		hbox : (size = '28') : (hint = 'Diffuse Depth') :
+		{
+			h3 : (text = 'Diffuse')
+			tf-v-r : (bind = [[value = 'pt_bounce_d']]) : (size = '33')
+			res-i : (range = '0 15' space = '8') 
+		}
+
+		hbox : (size = '28') : (hint = 'Reflection/Refraction Depth') :
+		{
+			h3 : (text = 'Specular')
+			tf-v-r : (bind = [[value = 'pt_bounce_sp']]) : (size = '33')
+			res-i : (range = '5 15' space = '8')
+		}
+
+		hbox : (size = '28') : (hint = 'Scatter Depth') :
+		{
+			h3 : (text = 'Scatter')
+			tf-v-r : (bind = [[value = 'pt_bounce_sc']]) : (size = '33')
+			res-i : (range = '5 15' space = '8')
+		}
+
+		hbox : (size = '28') : (hint = 'Clamp Energy') :
+		{
+			h3 : (text = 'Energy')
+			tf-v-r : (bind = [[value = 'pt_clamp' ]] format = 'i') : (size = '33')
+			res-i : (range = '1 5000' space = '8')
+		}
+	}
+	
+	bar-h
+	
+	hbox : (size = '28' clip = '0') :
+	{
+		sw-h1 : (path = '1 1' selected = '1' text = 'Sample' flex = '1')
+	}
+	vbox : (next = '6'):
+	{
+		hbox : (size = '24') : (hint = 'Stochastic Sampling Global Illumination') :
+		{
+			h3 : (text = 'Stochastic')
+			sw-check : (bind = [[value = 'pt_jit']]) : (size = '12')
+		}
+		
+		hbox : (size = '24') : (hint = 'Multiple Importance Sampling : Reflect') :
+		{
+			h3 : (text = 'MIS-Reflect')
+			sw-check : (bind = [[value = 'pt_mis_ggx']]) : (size = '12')
+		}
+
+		hbox : (size = '24') : (hint = 'Multiple Importance Sampling : Scatter') :
+		{
+			h3 : (text = 'MIS-Scatter')
+			sw-check : (bind = [[value = 'pt_mis_cloud']]) : (size = '12')
+		}
+		
+		hbox : (size = '24') : (hint = 'Pixelated Illumination') :
+		{
+			h3 : (text = 'Pixelated')
+			sw-check : (bind = [[value = 'pt_px']]) : (size = '12')
+		}
+
+		hbox : (size = '24') : (hint = 'Anti-Aliasing') :
+		{
+			h3 : (text = 'Anti-Aliasing')
+			sw-check : (bind = [[value = 'pt_b_aa']]) : (size = '12')
+		}
+
+		hbox : (size = '24') : (hint = 'Show Shadow') :
+		{
+			h3 : (text = 'Shadow')
+			sw-check : (bind = [[value = 'pt_b_sw']]) : (size = '12')
+		}
+		
+		hbox : (size = '24') : (hint = 'Translucent Shadow') :
+		{
+			h3 : (text = 'Translucent Shadow')
+			sw-check : (bind = [[value = 'pt_tr']]) : (size = '12')
+		}
+	}
+	
+	bar-h
+
+	sw-h1 : (selected = '1' text = 'Geometry' size = '28')
+	hbox : (size = '24' next = '8') : (hint = 'Sparse Volume for Large Space') :
+	{
+		h3 : (text = 'Sparse')
+		sw-check : ( bind = [[value = 'pt_sv']]) : (size = '12')
+	}
+
+	bar-h : (id = 'rl_sep1' hidden = '1')
+}

@@ -1,0 +1,314 @@
+vbox : (margin = '4 4 0 0') :
+{
+	vbox : (id = 'menu_model') : (flex = '1') :
+	{
+		sw-h2 : (selected = '1' text = 'Project' size = '28')
+		
+		layer-dark : (flex = '1') :
+		{
+			fileList : (id = 'file' root = [[$/vox]] ext = "vox" onSelect = 'open') : (hint = 'Project List')
+		}
+	}
+
+	vbox : (id = 'menu_patt' flex = '1' hidden = '1') :
+	{
+		hbox : (size = '28') :
+		{
+			sw-h2 : (path = '1 1' selected = '1' text = 'Pattern' flex = '1')
+
+			bn-ic : (onClick = 'onewpatt' text = '^10' textFont = 'icon' textSize = '14 14' delayed = '1') : (size = '23' margin = '0 0 3 3')
+			 : (hint = 'Add Pattern in the Scene')
+		
+			bn-ic : (text = '^73' textFont = 'icon' textSize = '14 14' onClick = 's_patt 1') : (size = '23' margin = '0 0 3 3')
+			 : (hint = 'Create Reference Patterns from Selected Objects')
+		
+			bn-ic : (text = '^12' textFont = 'icon' textSize = '14 14' onClick = 's_patt') : (size = '23' margin = '0 0 3 3')
+			 : (hint = 'Create Patterns from Selected Voxels/Objects')
+		}
+				
+		layer-dark : (bgColor = '70 70 70 0' scroll = '0 1' resize = '4') : (size = '200' max = '400' flex = '-1') :
+		{
+			preview : (id = 'preview' flex = '1' margin = '6 6 0 0') : (hint = 'Pattern Preview : Drag and Drop')
+		}
+
+		hbox : (size = '28' clip = '0') : (hint = 'Pattern Library') :
+		{
+			sw-h2 : (path = '1 1' selected = '1' text = 'Library') : (flex = '1')
+		
+			bn-ic : (onClick = 'i_patt' text = '^47' textSize = '14 14') : (size = '23' margin = '0 0 3 3') : (hint = 'Open Pattern')
+			
+			switch : (onClick = 'set option_import patt_match' text = 'Match' textFont = 'utf' textSize = '6.5 6.5' selected = '1')
+			 : (size = '46' margin = '0 0 3 3') : (hint = 'Match Palette Color')
+		}
+	
+		layer-dark : (flex = '1') :
+		{
+			fileList : (id = 'file_patt' root = [[$/vox]] ext = 'vox' onSelect = 'i_patt') : (hint = 'Pattern Library')
+		}
+	}
+
+	vbox : (id = 'menu_shader' flex = '1' hidden = '1') :
+	{
+		hbox : (clip = '0' size = '28') :
+		{
+			sw-h2 : (selected = '1' path = '1 1' text = 'Argument' flex = '1' next = '3')
+
+			bn-ic : (onClick = 'i_comp arg' textFont = 'icon' text = '^33' textSize = '14 14' delayed = '1') : (size = '25' margin = '0 0 3 3') : (hint = 'Import Args')
+			bn-ic : (onClick = 'o_comp arg' textFont = 'icon' text = '^34' textSize = '14 14' delayed = '1') : (size = '25' margin = '0 0 3 3') : (hint = 'Export Args')
+		} 
+		
+		layer-dark : (bgColor = '70 70 70 0' scroll = '0 1' resize = '4' size = '125' max = '250' flex = '-1') :
+		{
+			vbox : (margin = '9 6 0 0') : (id = 'xs' masked = '1') : (hint = 'Shader Arguments') :
+			{
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_0']]) : (flex = '1') res-f
+					
+				}
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_1']]) : (flex = '1') res-f
+					
+				}
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_2']]) : (flex = '1') res-f
+					
+				}
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_3']]) : (flex = '1') res-f
+					
+				}
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_4']]) : (flex = '1') res-f
+					
+				}
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_5']]) : (flex = '1') res-f
+					
+				}
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_6']]) : (flex = '1') res-f
+					
+				}
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_7']]) : (flex = '1') res-f
+					
+				}
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_8']]) : (flex = '1') res-f
+					
+				}
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_9']]) : (flex = '1') res-f
+					
+				}
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_10']]) : (flex = '1') res-f
+					
+				}
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_11']]) : (flex = '1') res-f
+					
+				}
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_12']]) : (flex = '1') res-f
+					
+				}
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_13']]) : (flex = '1') res-f
+					
+				}
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_14']]) : (flex = '1') res-f
+					
+				}
+				hbox : (size = '28') :
+				{
+					h3 tf-v-l : (bind = [[value = 'xs_arg_15']]) : (flex = '1') res-f
+					
+				}
+			}
+		}
+
+		hbox : (size = '28') :
+		{
+			sw-h2 : (selected = '1' path = '1 1' text = 'Shader' size = '50')
+			tf-v-r : (bind = [[value = 'xs_iter']] text = '1' maxLength = '2') : (size = '15') : (hint = 'Iteration Number')
+			res-i : (range = '1 64' space = '4')
+			sp : (flex = '1')
+			bn-ic : (text = '^42' textFont = 'icon' onClick = 'xs'    delayed = '1' textSize = '10 10') : (size = '25' margin = '0 0 3 3') : (hint = 'Execute Shader')
+			bn-ic : (text = '^38' textFont = 'icon' onClick = 'xs_load' delayed = '1' textSize = '12 12') : (size = '25' margin = '0 0 3 3') : (hint = 'Refresh Shader')
+		}		
+
+		layer-dark : (flex = '1') :
+		{
+			fileList : (id = 'file_xs' root = [[$/shader]] ext = 'txt' onSelect = 'xs_load') : (hint = 'Voxel Shader List')
+		}
+	}
+
+	vbox : (id = 'menu_graph' flex = '1' hidden = '1') :
+	{
+		hbox : (size = '28') :
+		{
+			sw-h2 : (path = '1 1' selected = '1' text = 'Outline' flex = '1' next = '2')
+		}
+
+		vbox :
+		{
+			hbox : (size = '22' next = '3') :
+			{
+				bn-ic : (delayed = '0' onClick = 'onew' textFont = 'icon' text = '^10' textSize = '13 13') : (flex = '1') : (hint = 'New Object [CTRL+N]')
+				bn-ic : (delayed = '0' onClick = 'odel' textFont = 'icon' text = '^11' textSize = '13 13') : (flex = '1') : (hint = 'Delete Objects [Backspace/Delete]')
+				bn-ic : (delayed = '0' onClick = 'ogroup'   textFont = 'icon' text = '^19' textSize = '13 13') : (flex =  '1' next = '1') : (hint = 'Group Objects [CTRL+R]')
+				bn-ic : (delayed = '0' onClick = 'oungroup' textFont = 'icon' text = '^18' textSize = '13 13') : (flex =  '1' next = '0') : (hint = 'Ungroup Objects [CTRL+SHIFT+R]')
+				bn-ic : (delayed = '0' onClick = 'olevel -1' text = '^X25b3' textFont = 'symbol' textSize = '12 12') : (flex =  '1') : (hint = 'Leave Object [SHIFT+TAB]')
+				bn-ic : (delayed = '0' onClick = 'olevel +1' text = '^X25bd' textFont = 'symbol' textSize = '12 12') : (flex =  '1') : (hint = 'Enter Object [TAB]')
+				bn-ic : (delayed = '0' onClick = 'order  1' onClick1 = 'order  2' text = '^x2191' textFont = 'symbol' textSize = '12 12' repeated = '1') : (flex = '1') : (hint = 'Move Forward : Bring To First [+SHIFT]')
+				bn-ic : (delayed = '0' onClick = 'order -1' onClick1 = 'order -2' text = '^x2193' textFont = 'symbol' textSize = '12 12' repeated = '1') : (flex = '1') : (hint = 'Move Backward : Bring To Last [+SHIFT]')
+			}
+		}
+
+		layer-dark : (flex = '1') :
+		{
+			graph : (id = 'graph' menu = 'popup_outline') : (hint = 'Scene : Enter [Double Click] : Multi-Select [CTRL/SHIFT] : Menu [RButton]')
+		}
+	}
+
+	layer : (fitSize ='1 0' scroll = '0 1') : (flex = '1') : (id = 'menu_io' flex = '1' hidden = '1') :
+	{
+		vbox : (margin = '9 6 0 0' clip = '0') :
+		{	
+			hbox : (clip = '0' size = '28' margin = '-9 -2 0 0') :
+			{
+				sw-h2 : (selected = '1' path = '1 1' text = 'File') : (flex = '1')
+			}
+
+			vbox :
+			{
+				hbox : (size = '28') : (hint = 'Palette') :
+				{
+					h3 : (text = 'Palette')
+					bn-ic : (onClick = 'i_pal sel' text = '^33' textSize = '14 14') : (size = '20' margin = '0 0 4 4') : (hint = 'Import')
+					bn-ic : (onClick = 'o_pal' text = '^34' textSize = '14 14') : (size = '20' margin = '0 0 4 4') : (hint = 'Export')
+					sw-check : (bind = [[value = 'save_pal']]) : (prev = '3' size = '16') : (hint = 'Save in the File')
+				}
+				hbox : (size = '28') : (hint = 'Material') :
+				{
+					h3 : (text = 'Material')
+					bn-ic : (onClick = 'i_comp mtl' text = '^33' textSize = '14 14') : (size = '20' margin = '0 0 4 4') : (hint = 'Import')
+					bn-ic : (onClick = 'o_comp mtl' text = '^34' textSize = '14 14') : (size = '20' margin = '0 0 4 4') : (hint = 'Export')
+					sw-check : (bind = [[value = 'save_mtl']]) : (prev = '3' size = '16') : (hint = 'Save in the File')
+				}
+				hbox : (size = '28') : (hint = 'Render Setting') :
+				{
+					h3 : (text = 'Render')
+					bn-ic : (onClick = 'i_comp render' text = '^33' textSize = '14 14') : (size = '20' margin = '0 0 4 4') : (hint = 'Import')
+					bn-ic : (onClick = 'o_comp render' text = '^34' textSize = '14 14') : (size = '20' margin = '0 0 4 4') : (hint = 'Export')
+					sw-check : (bind = [[value = 'save_render']]) : (prev = '3' size = '16') : (hint = 'Save in the File')
+				}
+				hbox : (size = '28') : (hint = 'Camera') :
+				{
+					h3 : (text = 'Camera')
+					bn-ic : (onClick = 'i_comp camera' text = '^33' textSize = '14 14') : (size = '20' margin = '0 0 4 4') : (hint = 'Import')
+					bn-ic : (onClick = 'o_comp camera' text = '^34' textSize = '14 14') : (size = '20' margin = '0 0 4 4') : (hint = 'Export')
+					sw-check : (bind = [[value = 'save_camera']]) : (prev = '3' size = '16') : (hint = 'Save in the File')
+				}	
+				hbox : (size = '28') : (hint = 'Palette Note') :
+				{
+					h3 : (text = 'Note')
+					bn-ic : (onClick = 'i_comp note' text = '^33' textSize = '14 14') : (size = '20' margin = '0 0 4 4') : (hint = 'Import')
+					bn-ic : (onClick = 'o_comp note' text = '^34' textSize = '14 14') : (size = '20' margin = '0 0 4 4') : (hint = 'Export')
+					sw-check : (bind = [[value = 'save_note']]) : (prev = '3' size = '16') : (hint = 'Save in the File')
+				}			
+			}
+			
+			hbox : (clip = '0' size = '28' margin = '-9 -2 0 0') :
+			{
+				sw-h2 : (selected = '1' path = '1 1' text = 'Import') : (flex = '1')
+				bn-ic : (onClick = 'i' text = '^47' textSize = '14 14') : (size = '20' margin = '-2 -2 4 4') : (hint = 'Import Project [Drop]')
+			}			
+			vbox :
+			{
+				hbox : (size = '28') : (hint = 'Only Import Color and Material for Selected Palette Region') :
+				{
+					h3 : (text = 'Selected Color')
+					sw-check : (bind = [[value = 'import_pal_sel']]) : (size = '16')
+				}
+				hbox : (size = '28') : (hint = 'Match Palette Color') :
+				{
+					h3 : (text = 'Match Color')
+					sw-check : (bind = [[value = 'import_match']]) : (size = '16')
+				}
+			}
+
+			hbox : (clip = '0' size = '28' margin = '-9 -2 0 0') :
+			{
+				sw-h2 : (selected = '1' path = '1 1' text = 'Export') : (flex = '1')
+				bn-ic : (onClick = 'o' text = '^47' textSize = '14 14') : (size = '20' margin = '-2 -2 4 4') : (hint = 'Export Project')
+			}
+			vbox :
+			{
+				hbox : (size = '28') : (hint = 'Only Export Selected Objects') :
+				{
+					h3 : (text = 'Selection Only')
+					sw-check : (bind = [[value = 'export_sel']]) : (size = '16')
+				}
+
+				hbox : (size = '28') : (hint = 'Export Objects in the Local Space') :
+				{
+					h3 : (text = 'Local Space')
+					sw-check : (bind = [[value = 'export_local']]) : (size = '16')
+				}
+			}
+		}
+	}
+
+	//----------------
+	// Export
+	//----------------
+	vbox : bg :
+	{
+		sw-h2 : (selected = '0' text = 'Export' size = '28')
+		vbox :
+		{
+			hbox : (size = '28' next = '1') :
+			{
+				button : (onClick = 'o obj'	text = 'obj'	delayed = '1' 	) : (flex = '1' next = '1') : (hint = 'obj : obj mesh')
+				button : (onClick = 'o ply'	text = 'ply'	delayed = '1' 	) : (flex = '1' next = '1'): (hint = 'ply : ply mesh')
+				button : (onClick = 'o mc'	text = 'mc'		delayed = '1' 	) : (flex = '1' next = '0') : (hint = 'mc : Marching Cubes')
+			}
+			hbox : (size = '28' next = '1') :
+			{
+				button : (onClick = 'o xraw'text = 'xraw'	delayed = '1' 	) : (flex = '1' next = '1') : (hint = 'vox : xraw volume')
+				button : (onClick = 'o slab'text = 'slab'	delayed = '1' 	) : (flex = '1' next = '1') : (hint = 'slab : slab6 vox volume')
+				button : (onClick = 'o qb'	text = 'qb'		delayed = '1' 	) : (flex = '1' next = '0') : (hint = 'qb : qb volume')
+			}
+			hbox : (size = '28' next = '1') :
+			{
+				button : (onClick = 'o vox'	text = 'vox'	delayed = '1' 	) : (flex = '1' next = '1') : (hint = 'vox : vox voxels')
+				button : (onClick = 'o iso'	text = 'iso'	delayed = '1' 	) : (flex = '1' next = '1') : (hint = 'iso : isometric pixel sprite')
+				button : (onClick = 'o 2d'	text = '2d'		delayed = '1' 	) : (flex = '1' next = '0') : (hint = '2d : 2D sprite')
+			}
+			hbox : (size = '28') :
+			{
+				button : (onClick = 'o slice'	text = 'slice'	delayed = '1' 	) : (flex = '1' next = '1') : (hint = 'slice : slices')
+				button : (onClick = 'o pcl'		text = 'point'	delayed = '1' 	) : (flex = '1' next = '1'): (hint = 'point : point clouds')
+				button : (onClick = 'o cube'	text = 'cube'	delayed = '1' 	) : (flex = '1' next = '0') : (hint = 'cube : cubes')
+			}
+		}
+	}
+}

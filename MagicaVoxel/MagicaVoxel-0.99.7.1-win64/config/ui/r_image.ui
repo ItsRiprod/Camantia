@@ -1,0 +1,123 @@
+vbox : (id = 'menu_image' clip = '0' hidden = '1') : (margin = '9 9 0 0') :
+{
+	sw-h1 : (selected = '1' text = 'Image') : (size = '28')
+
+	vbox :
+	{
+		tab-l : (index = '0' next = '11' margin = '4 4 -3 -3' size = '70') :
+		{
+			vbox :
+			{
+				option : (view = [['panel_photo']]	onSelect = 'set pt_b_motion 0' text = 'Photo'	) : (corner = '12' radius = '2') : (flex = '1') : (hint = 'Still Image')
+				option : (view = [['panel_spin']]	onSelect = 'set pt_b_motion 1' text = 'Turntable') : (flex = '1') : (hint = 'Turntable Animation')
+				option : (view = [['panel_anim']]	onSelect = 'set pt_b_motion 0' text = 'Anim') : (flex = '1') : (hint = 'Animation')
+			}
+		}
+	
+		//----------------
+		// Photo
+		//----------------
+		vbox : (id = 'panel_photo') : (next = '8') : (hint = 'Still Image') :
+		{
+			vbox : (next = '8') :
+			{
+				hbox : (size = '28') : (hint = 'Image Width') :
+				{
+					h3 : (text = 'Width')
+					tf-v-c : (bind = [[value = 'pt_photo_w']] maxLength = '5' once = '1' enter = '1') : (size = '40')
+					res-i : (range = '1 12000' step = '10' space = '4')
+				}
+			
+				hbox : (size = '28') : (hint = 'Image Height') :
+				{
+					h3 : (text = 'Height')
+					tf-v-c : (bind = [[value = 'pt_photo_h']] maxLength = '5' once = '1' enter = '1') : (size = '40')
+					res-i : (range = '1 12000' step = '10' space = '4')
+				}
+
+			}
+		
+			button : (text = 'Render' onClick = 'task photo' delayed = '1' radius = '2') : (size = '24') : (hint = 'Final Render')
+		}
+	
+		//----------------
+		// Turntable
+		//----------------
+		vbox : (id = 'panel_spin' hidden = '1') : (next = '8') : (hint = 'Turntable Animation') :
+		{
+			vbox :
+			{
+				hbox : (size = '28') : (hint = 'Number of Frames') :
+				{
+					h3 : (text = 'Frames')
+					tf-v-c : (bind = [[value = 'pt_spin_frames']] maxLength = '4' once = '1' enter = '1') : (size = '40')
+					res-i : (range = '1 3600' space = '4') 
+				}
+
+				hbox : (size = '28') : (hint = 'Angle') :
+				{
+					h3 : (text = 'Angle')	
+					tf-v-c : (bind = [[value = 'pt_spin_angle']] format = 'i' maxLength = '4' once = '1' enter = '1') : (size = '40')
+					res-i : (range = '0 360' space = '1')
+				}
+
+				vbox : (hint = 'Motion Blur') : (next = '8') : 
+				{
+					hbox : (size = '28') :
+					{
+						h3 : (text = 'Blur')
+						tf-v-c : (bind = [[value = 'pt_spin_blur']] format = '%' maxLength = '4' once = '1' enter = '1') : (size = '40')
+						res-i : (range = '0 100' space = '4')
+					}
+				}
+			}
+
+			button : (text = 'Render' onClick = 'task spin' delayed = '1' radius = '2') : (size = '24') : (hint = 'Final Render')
+		}
+
+		//----------------
+		// Anim
+		//----------------
+		vbox : (id = 'panel_anim' hidden = '1') : (next = '8') : (hint = 'Animation') :
+		{
+			vbox : (next = '8') :
+			{
+				hbox : (size = '28') : (hint = 'Start Frame') :
+				{
+					h3 : (text = 'Start')	
+
+					tf-v-c : (bind = [[value = 'pt_anim_f0']] maxLength = '5' once = '1' enter = '1')
+					 : (size = '40')
+					res-i : (range = '0 120' space = '4') 
+				}
+			
+				hbox : (size = '28') : (hint = 'End Frame') :
+				{
+					h3 : (text = 'End')	
+
+					tf-v-c : (bind = [[value = 'pt_anim_f1']] maxLength = '5' once = '1' enter = '1')
+					 : (size = '40')
+					res-i : (range = '0 120' space = '4')
+				}
+
+			}
+		
+			button : (text = 'Render' onClick = 'task anim' delayed = '1' radius = '2') : (size = '24') : (hint = 'Final Render')
+		}
+	}
+
+	bar-h
+	
+	hbox : (size = '28' clip = '0') : (hint = 'Select Material [ALT+LButton]') :
+	{
+		sw-h1 : (path = '1 1' selected = '1' text = 'Filter') : (flex = '1')
+		
+		sw-sub : (bind = [[value = 'filter_auto']] text = 'Auto') : (size = '30') : (hint = 'Auto Apply Filter to Image Rendering')
+	}
+	
+	vbox :
+	{
+		button : (text = 'Denoise' onClick = 'denoise exec intel_oidn' delayed = '1' radius = '2') : (size = '24') : (hint = 'Denoise')
+	}
+}
+

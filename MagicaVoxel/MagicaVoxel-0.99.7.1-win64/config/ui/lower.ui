@@ -1,0 +1,44 @@
+vbox : bg2 :
+{
+	hbox : (size = '26' prev = '3' next = '3') :
+	{
+		sw-view : (view = [['v_cam']] selected = '0')
+		 : (text = '^9660' text2 = '^9650')
+		 : (size = '24' prev = '3' next = '3' margin = '0 0 2 2')
+		 : (hint = 'Show Camera Control')
+
+		bn-ic : (onClick = 'snap scene')
+		 : (text = '^8' textOffset = '0 1' textSize = '19 19')
+		 : (next = '3' size = '28')
+		 : (hint = 'Capture Image [6] : Capture Window [CTRL+6]')		
+		
+		textField : (id = 'cmd' onEnter = '/' default = 'console' maxLength = '512' clear = '1' history = '1' border = '10' textSize = '8 8' bgColor = '40 40 40' textAlign = '1')
+		 : (flex = '1' size = '90' next = '3' margin = '0 0 1 1') : (radius = '6') 
+		 : (hint = 'Console [F1] : History [UP/DOWN]')
+
+		opBox : (bind = [[value = 'cam_mode']] value = '0' onSelect = 'set ui/scene.proj') : (size = '140') :
+		{
+			hbox :
+			{
+				option : (select_id = '0' textSize = '7.5 7.5' text = 'Perspective*') : (flex = '1' next = '2') : (hint = 'Perspective Camera')
+				option : (select_id = '1' textSize = '7.5 7.5' text = 'Free*') : (flex = '1' next = '2') : (hint = 'Freestyle Camera : Move [WASDQE]')
+				option : (select_id = '2' textSize = '7.5 7.5' text = 'Orthogonal*') : (flex = '1' next = '2') : (hint = 'Orthogonal Camera')
+				option : (select_id = '3' textSize = '7.5 7.5' text = 'Isometric*' ) : (flex = '1' next = '2') : (hint = 'Isometric Camera')
+			}
+		}
+
+		bn-ic : (textColor	= '255 255 255 180' textColor-h	= '255 255 255 210' onClick = 'cam focus' text = '^15' delayed = '0') : (size = '22' next = '3') : (hint = 'Recenter Camera [5] : Face View [CTRL+5]')
+		switch : (onClick = 'set ui/scene.ruler' selected = '0') : (text = '^14') : (size = '22' next = '3') : (hint = 'Show Camera Ruler : Drag on Ruler [LButton]')
+		switch : (onClick = 'set ui/scene.cube' selected = '1') : (text = '^13') : (size = '22' next = '3') : (hint = 'Show View Cube')
+	}
+
+	vbox : (id = 'v_hint') :
+	{
+		layer : (fitSize = '0 1') :
+		{
+			ui = 'cam.ui'
+		}
+				
+		hint : (id = 'main' size = '24') : (hint = 'Hint : [HotKey]')
+	}
+}	

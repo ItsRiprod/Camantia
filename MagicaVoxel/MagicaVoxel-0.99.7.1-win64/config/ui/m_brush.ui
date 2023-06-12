@@ -1,0 +1,307 @@
+vbox : (id = 'left_medit' hidden = '1' margin = '10 10 0 0' clip = '0') :
+{
+	//----------------
+	// Mode
+	//----------------
+	tab : (bind = [[value = 'b_mode']] next = '8' masked = '0') :
+	{
+		vbox :
+		{
+			hbox : (size = '24.5' next = '1') :
+			{
+				op-mode : (select_id = 'geo'		text = '^107' ) : (flex = '1' next = '1') : (hint = 'Geometry Mode [L]') : (id = 'geo' view = [['v_geo']])
+				op-mode : (select_id = 'code'		text = '^50'  textSize = '15 15') : (flex = '1' next = '1') : (hint = 'Voxel Shader Mode [C]')
+				op-mode : (select_id = 'pattern'	text = '^16'  textSize = '14 14') : (flex = '1' next = '0') : (hint = 'Pattern Mode [P] : Rotate [-/+/0/9] : Move [Dir/Page/Home]') : (view = [['v_pat']])
+			}
+
+			hbox : (size = '24.5') :
+			{
+				op-mode : (select_id = 'vox'	text = '^108') : (flex = '1' next = '1') : (hint = 'Voxel Mode [V] : Resize [-/+/CTRL+ALT+Drag]') : (view = [['v_vox']])
+				op-mode : (select_id = 'face'	text = '^110') : (flex = '1' next = '1') : (hint = 'Face Mode [F] : Extrude [Drag]') : (view = [['v_face']])
+				op-mode : (select_id = 'box'	text = '^13' textSize = '15 15') : (flex = '1' next = '0') : (hint = 'Box Mode [B]')
+			}
+		}
+	}
+
+	//----------------
+	// Type
+	//----------------
+	tab : (bind = [[value = 'b_type']] masked = '0') :
+	{
+		vbox :
+		{
+			vbox : (bgColor = '152 152 154') : (corner = '15') :
+			{
+				op-brush : (select_id = 'attach'	text = 'Attach'	textFont = 'utf' textSize = '8 8') : (size = '29') : (hint = 'Attach Voxels [T]')
+				op-brush : (select_id = 'erase' 	text = 'Erase'	textFont = 'utf' textSize = '8 8') : (size = '29') : (hint = 'Erase Voxels [R]')
+				op-brush : (select_id = 'paint' 	text = 'Paint'	textFont = 'utf' textSize = '8 8') : (size = '29') : (hint = 'Paint Voxels [G]')
+			}
+																														
+			vbox : (bgColor = '132 132 134' corner = '15' prev = '2') :
+			{
+				hbox : (size = '28.5' next = '1') :
+				{
+					op-brush : (select_id = 'xform'  text = '^22' ) : (flex = '1' next = '1') : (hint = 'Transform') : (id = 'xform' view = [['v_xform']])
+					op-brush : (select_id = 'msel'   text = '^12' ) : (flex = '1' next = '1') : (hint = 'Marquee Select [M] : Add [SHIFT] : Remove [SHIFT+ALT]') : (id = 'msel' view = [['v_msel']])
+					op-brush : (select_id = 'asel'   text = '^103') : (flex = '1' next = '0') : (hint = 'Region Select [N] : Add [SHIFT] : Remove [SHIFT+ALT]') : (view = [['v_region']])
+				}
+
+				hbox : (size = '28.5') :
+				{
+					op-brush : (select_id = 'pick'    text = '^26' textSize = '16 16'                    ) : (flex = '1' next = '1') : (hint = 'Pick Voxel Color [ALT+LButton]')
+					op-brush : (select_id = 'remove'  text = '^46' textOffset = '0 -1'                   ) : (flex = '1' next = '1') : (hint = 'Region Remove') : (view = [['v_region']])
+					op-brush : (select_id = 'replace' text = '^71' textOffset = '0 -1' textSize = '18 18') : (flex = '1' next = '0') : (hint = 'Region Replace') : (view = [['v_region']])
+				}
+			}
+		}
+	}
+	
+	//----------------
+	// Mirror/Axis
+	//----------------
+	vbox : (id = '' prev = '8') :
+	{
+		vbox :
+		{
+			hbox : (size = '24.5' next = '1') : (hint = 'Mirror Mode') :
+			{
+				bn-mir : (onClick = 'set b_mirror_x 0 | set b_mirror_y 0 | set b_mirror_z 0' text = '^114' textSize = '16 16' textFont = 'icon') : (flex = '1' next = '1' corner = '4' radius = '2') : (hint = 'Reset Mirror Mode')
+				sw-mir : (bind = [[value = 'b_mirror_x']] text = 'X' flex = '1' next = '1')
+				sw-mir : (bind = [[value = 'b_mirror_y']] text = 'Y' flex = '1' next = '1')
+				sw-mir : (bind = [[value = 'b_mirror_z']] text = 'Z' flex = '1' next = '0' corner = '8')
+			}
+
+			hbox : (size = '24.5') : (hint = 'Axis Mode') :
+			{
+				bn-mir : (onClick = 'set b_axis_x 0 | set b_axis_y 0 | set b_axis_z 0' text = '^56' textSize = '10 10' textFont = 'icon') : (flex = '1' next = '1' corner = '1' radius = '2') : (hint = 'Reset Axis Mode')
+				sw-mir : (bind = [[value = 'b_axis_x']] text = 'X' flex = '1' next = '1')
+				sw-mir : (bind = [[value = 'b_axis_y']] text = 'Y' flex = '1' next = '1')
+				sw-mir : (bind = [[value = 'b_axis_z']] text = 'Z' flex = '1' next = '0' corner = '2')
+			}
+		}
+	}
+	
+	//----------------
+	// Marquee Select
+	//----------------
+	vbox : (id = 'v_msel' clip = '0' hidden = '1') :
+	{
+		sw-h1 : (selected = '1' text = 'Marquee') : (size = '28' ) : (hint = 'Marquee Option')
+		opBox-l : (bind = [[value = 'b_msel']]) : (size = '28') :
+		{
+			hbox:
+			{
+				option : (select_id = 'msel_rect'   text = '^12' textFont = 'icon' textSize = '15 15') : (flex = '1') : (corner = '15') : (hint = 'Rect Select') 
+				option : (select_id = 'msel'		text = '^87' textFont = 'icon' textSize = '15 15') : (flex = '1') : (corner = '15') : (hint = 'Brush Select')
+				option : (select_id = 'msel_box'	text = '^88' textFont = 'icon' textSize = '17 17') : (flex = '1') : (corner = '15') : (hint = 'Box Select')  
+			}		
+		}
+	}
+
+	//----------------
+	// Transform
+	//----------------
+	vbox : (id = 'v_xform' clip = '0' hidden = '1') :
+	{
+		sw-h1 : (selected = '1' text = 'Transform') : (size = '28' ) : (hint = 'Transform Option')
+		vbox :
+		{
+			tab-l : (bind = [[value = 'b_xform']]) : (size = '28') :
+			{
+				hbox :
+				{
+					option : (select_id = 'move'   text = '^22' textFont = 'icon' textSize = '15 15') : (flex = '1') : (corner = '15') : (hint = 'Move/Loop [CTRL+LButton] : Normal Axis [SHIFT]')
+					option : (select_id = 'scale'  text = '^64' textFont = 'icon' textSize = '15 15') : (flex = '1') : (corner = '15') : (hint = 'Scale : Commit [Enter] : Cancel [Esc] : Two-sided [SHIFT]')
+					option : (select_id = 'wrap'   text = '^81' textFont = 'icon' textSize = '15 15') : (flex = '1') : (corner = '15') : (hint = 'Wrap [N] : Commit [Enter] : Cancel [Esc] : Two-sided [SHIFT]') : (view = [['v_wrap']])
+					option : (select_id = 'rotate' text = '^37' textFont = 'icon' textSize = '15 15') : (flex = '1') : (corner = '15') : (hint = 'Rotate : Commit [Enter] : Cancel [Esc] : Snap [SHIFT]')
+				}		
+			}
+			vbox : (id = 'v_wrap' hidden = '1' prev = '3') :
+			{
+				hbox : (size = '28') : (hint = 'Wrap Spacing') :
+				{
+					tf-v-r : (bind = [[value = 'b_wrap_space_x']] textColor = '255 255 255 180' maxLength = '3' enter = '1') : (flex = '1')
+					res-i : (range = '0 256' space = '5') : (next = '1' corner = '10' margin = '0 0 2 2')
+					tf-v-r : (bind = [[value = 'b_wrap_space_y']] textColor = '255 255 255 180' maxLength = '3' enter = '1') : (flex = '1')
+					res-i : (range = '0 256' space = '5') : (next = '1' corner = '10' margin = '0 0 2 2')
+					tf-v-r : (bind = [[value = 'b_wrap_space_z']] textColor = '255 255 255 180' maxLength = '3' enter = '1') : (flex = '1')
+					res-i : (range = '0 256' space = '5') : (next = '1' corner = '10' margin = '0 0 2 2')
+				}
+			}
+		}
+	}
+
+	//----------------
+	// Region
+	//----------------
+	vbox : (id = 'v_region' clip = '0' hidden = '1') :
+	{
+		sw-h1 : (selected = '1' text = 'Region') : (size = '28' ) : (hint = 'Region Option')
+		vbox : bg-l :
+		{
+			tab : (bind = [[value = 'b_region']]) : (size = '28') :
+			{
+				hbox:
+				{
+					option : (select_id = '0' text = '^106' textFont = 'icon' textSize = '15 15') : (flex = '1') : (hint = 'Same Palette Color')
+					option : (select_id = '1' text = '^84'  textFont = 'icon' textSize = '15 15') : (flex = '1') : (hint = 'Connected Region') : (view = [['v_rsel']])
+				}
+			}
+
+			vbox : (id = 'v_rsel' hidden = '1') :
+			{
+				opBox : (bind = [[value = 'b_rsel_col']]) : (size = '28') : (hint = 'Color/Geometry Connectivity') :
+				{
+					hbox:
+					{
+						option : (select_id = '1' text = 'Color') : (flex = '1')
+						option : (select_id = '0' text = 'Geo') : (flex = '1')
+					}		
+				}				
+				opBox : (bind = [[value = 'b_rsel_4']]) : (size = '28') : (hint = '4/8 Neighbor Searching Direction') :
+				{
+					hbox:
+					{
+						option : (select_id = '1' text = '4') : (flex = '1')
+						option : (select_id = '0' text = '8') : (flex = '1')
+					}		
+				}
+			}
+		}
+	}
+			
+	//----------------
+	// Voxel
+	//----------------
+	vbox : (id = 'v_vox' hidden = '1' clip = '0') :
+	{					
+		hbox : (size = '28' clip = '0') : (hint = 'Voxel Mode Option') :
+		{
+			sw-h1 : (path = '1 1' selected = '1' text = 'Voxel') : (flex = '1')
+	
+			hbox : (hint = 'Voxel Size [1 - 64] : Change Size [-/+/CTRL+ALT+Drag]') :
+			{
+				tf-v-r : (bind = [[value = 'b_vox_size']] textSize = '7 7' textColor = '255 255 255 180' maxLength = '3' once = '1' enter = '1') : (flex = '1' size = '25')
+				res-i : (path = '-1' range = '1 64' space = '4') : (corner = '10')
+			}
+		}
+		vbox : bg-l :
+		{
+			opBox : (bind = [[value = 'b_vox_cube']]) : (size = '28') : (hint = 'Cube/Sphere Shape') :
+			{
+				hbox:
+				{
+					option : (select_id = '1' text = '^9632' textFont = 'symbol' textSize = '12 12') : (flex = '1')
+					option : (select_id = '0' text = '^9679' textFont = 'symbol' textSize = '12 12') : (flex = '1')
+				}
+			}
+
+			opBox : (bind = [[value = 'b_vox_vol']]) : (size = '28' margin = '1 1 1 0') : (hint = '2D/3D Shape') :
+			{
+				hbox:
+				{
+					option : (select_id = '0' text = '2D') : (flex = '1')
+					option : (select_id = '1' text = '3D') : (flex = '1')
+				}		
+			}
+		}
+	}
+
+	//----------------
+	// Face
+	//----------------
+	vbox : (id = 'v_face' hidden = '1' clip = '0') :
+	{
+		sw-h1 : (selected = '1' text = 'Face') : (size = '28' ) : (hint = 'Face Mode Option')
+		vbox : bg-l :
+		{
+			opBox : (bind = [[value = 'b_face_pal']]) : (size = '28') :
+			{
+				hbox:
+				{
+					option : (select_id = '1' text = '^106' textFont = 'icon' textSize = '15 15') : (flex = '1') : (hint = 'Use Palette Color')
+					option : (select_id = '0' text = '^83'  textFont = 'icon' textSize = '13 13') : (flex = '1') : (hint = 'Use Voxel Color')
+				}			
+			}
+			opBox : (bind = [[value = 'b_face_col']]) : (size = '28') : (hint = 'Color/Geometry Connectivity') :
+			{
+				hbox:
+				{
+					option : (select_id = '1' text = 'Color') : (flex = '1')
+					option : (select_id = '0' text = 'Geo') : (flex = '1')
+				}		
+			}
+			opBox : (bind = [[value = 'b_face_4']]) : (size = '28') : (hint = '4/8 Neighbor Searching Direction') :
+			{
+				hbox:
+				{
+					option : (select_id = '1' text = '4') : (flex = '1')
+					option : (select_id = '0' text = '8') : (flex = '1')
+				}		
+			}
+		}
+	}
+	
+	//----------------
+	// Geo
+	//----------------
+	vbox : (id = 'v_geo' hidden = '1' clip = '0') :
+	{
+		hbox : (size = '28' clip = '0') :
+		{
+			sw-h1 : (selected = '1' path = '1 1' text = 'Geometry' flex = '1') : (hint = 'Geometry Mode Option')
+		}
+		vbox :
+		{
+			tab-l : (bind = [[value = 'b_geo']]) : (size = '28') :
+			{
+				hbox :
+				{
+					option : (text = '^107'  textFont = 'icon'	 select_id = 'line'   textSize = '16 16') : (flex = '1') : (view = [['v_line'   ]]) : (hint = 'Line')	
+					option : (text = '^9632' textFont = 'symbol' select_id = 'square' textSize = '12 12') : (flex = '1') : (view = [['v_center' ]]) : (hint = 'Square')
+					option : (text = '^9679' textFont = 'symbol' select_id = 'circle' textSize = '12 12') : (flex = '1') : (view = [['v_center' ]]) : (hint = 'Circle')
+				}
+			}
+			hbox : (id = 'v_line' size = '28' prev = '3') : (hint = 'Project Line on the Surface') :
+			{
+				h3 : (text = 'Project Line')
+				sw-check : (bind = [[value = 'b_line_proj']]) : (size = '16')
+			}
+			vbox : (id = 'v_center' prev = '3' hidden = '1') :
+			{
+				hbox : (size = '28') : (hint = 'Fill Center') :
+				{
+					h3 : (text = 'Fill Center')
+					sw-check : (bind = [[value = 'b_center_fill']]) : (size = '16')
+				}
+				hbox : (size = '28') : (hint = 'Even Size') :
+				{
+					h3 : (text = 'Even')
+					sw-check : (bind = [[value = 'b_center_even']]) : (size = '16')
+				}
+			}
+		}
+	}
+
+	//----------------
+	// Pattern
+	//----------------
+	vbox : (id = 'v_pat' hidden = '1' clip = '0') :
+	{
+		hbox : (size = '28' clip = '0') : (hint = 'Pattern Mode Option') :
+		{
+			sw-h1 : (path = '1 1' selected = '1' text = 'Pattern') : (flex = '1')
+	
+			bn-ic : (text = '^12' textFont = 'icon' textSize = '14 14' onClick = 's_patt') : (corner = '15' radius = '2') : (size = '16' margin = '-4 -4 4 4')
+			 : (hint = 'Create Pattern from Selection')
+		}
+		opBox-l : (bind = [[value = 'b_patt_pal']]) : (size = '28') :
+		{
+			hbox:
+			{
+				option : (select_id = '1' text = '^106' textFont = 'icon' textSize = '15 15' id = '1') : (flex = '1') : (hint = 'Use Palette Color')
+				option : (select_id = '0' text = '^83'  textFont = 'icon' textSize = '13 13' id = '0') : (flex = '1') : (hint = 'Use Voxel Color')
+			}
+		}
+	}
+}

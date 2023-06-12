@@ -1,0 +1,173 @@
+vbox : (id = 'menu_cam' hidden = '1' clip = '0') : (margin = '9 9 0 0') :
+{
+	//----------------
+	// Lens
+	//----------------
+	hbox : (size = '28' clip = '0') :
+	{
+		sw-h1 : (path = '1 1' selected = '1' text = 'Lens') : (flex = '1')
+		
+		hbox : (hint = 'Field of View') :
+		{
+			tf-v-r : (bind = [[value = 'pt_fov']] format = 'i' maxLength = '3') : (size = '30')
+			
+			res-i : (range = '1 360' space = '3' margin = '0 0 4 4')
+		}
+	}
+	vbox : (next = '8') :
+	{
+		opBox-l : (bind = [[value = 'pt_proj']] index = '0' size = '27' next = '11' margin = '-3 -3 0 0') :
+		{
+			hbox :
+			{
+				option : (select_id = '0' text = 'Perspective*') : (flex = '1') : (hint = 'Perspective Projection')
+				option : (select_id = '1' text = 'SG') : (flex = '1') : (hint = 'Stereographics Projection')
+				option : (select_id = '2' text = 'Panorama*') : (flex = '1') : (hint = 'Panorama Projection') // Equirectangular 
+			}
+		}
+		
+		vbox : (hint = 'Aperture Size : Depth of Field') :
+		{
+			hbox : (size = '15') :
+			{
+				h3 : (text = 'Aperture')
+				tf-v-r : (bind = [[value = 'pt_dof']] format = '%') : (size = '30')
+				res-f-p
+			}
+			slider : (bind = [[value = 'pt_dof']] range = '0 1' snap = '0') : (size = '28')
+		}
+
+		vbox : (hint = 'Blade Rotation Angle') :
+		{
+			hbox : (size = '15') :
+			{
+				h3 : (text = 'Rotation')
+				tf-v-r : (bind = [[value = 'pt_blade_rot']] format = 'i' maxLength = '4') : (size = '30')
+				res-f : (range = '-180 180' step = '1' space = '2' mod = '1')
+			}
+			slider : (bind = [[value = 'pt_blade_rot']] range = '-180 180') : (size = '28')
+		}
+
+		vbox : (hint = 'Blade Number') :
+		{
+			hbox : (size = '15') :
+			{
+				h3 : (text = 'Blade')
+				tf-v-r : (bind = [[value = 'pt_blade_num']] maxLength = '1') : (size = '30')
+				res-i : (range = '0 8' space = '8')
+			}
+			slider : (bind = [[value = 'pt_blade_num']] range = '0 8' snap = '1') : (size = '28')
+		}
+
+		vbox :
+		{
+			hbox : (size = '20' prev = '3') :
+			{
+				sw-orange : (bind = [[value = 'pt_fix_focus']] text = 'DOF' size = '35') : (prev = '4') : (hint = 'Fix Focus Depth : Click Voxel to Set Focus')
+				sp : (flex = '1')
+				tf-v-r : (bind = [[value = 'pt_focus']] format = 'f.1' maxLength = '6')
+				 : (size = '35') : (hint = 'Set Focus Depth : Click Voxel to Set Focus')
+
+				res-f : (range = '0 9999.9' step = '1' space = '5')
+			}
+		}
+	}
+
+	bar-h
+
+	//----------------
+	// Film
+	//----------------
+	sw-h1 : (selected = '1' text = 'Film') : (size = '28')
+	vbox : (next = '8') :
+	{
+		vbox : (hint = 'Exposure') :
+		{
+			hbox : (size = '15') :
+			{
+				h3 : (text = 'Exposure')
+				tf-v-r : (bind = [[value = 'pt_expo']] format = 'f.1') : (size = '30')
+				res-f : (range = '0 30' step = '0.1' space = '1')
+			}
+			slider : (bind = [[value = 'pt_expo']] range = '1.0 16.0' snap = '0.01') : (size = '28')		
+		}
+
+		vbox : (hint = 'Vignette') :
+		{
+			hbox : (size = '15') :
+			{
+				h3 : (text = 'Vignette')
+				tf-v-r : (bind = [[value = 'pt_vig']] format = '%') : (size = '30')
+				res-f-p
+			}
+			slider : (bind = [[value = 'pt_vig']] snap = '0') : (size = '28')
+		}
+
+		hbox : (size = '20' prev = '3') : (hint = 'Gamma Correction') :
+		{
+			sw-orange : (bind = [[value = 'pt_aces']] text = 'ACES'): (prev = '4' size = '35') : (hint = 'ACES Filmic Tone Mapping')
+			sp : (flex = '1')
+			tf-v-r : (bind = [[value = 'pt_gamma']] format = 'f.1' maxLength = '3') : (size = '30')
+
+			res-f : (range = '1 5' step = '0.1' space = '5')
+		}	
+	}
+
+	bar-h
+	
+	hbox : (size = '28' clip = '0') :
+	{
+		sw-h1 : (path = '1 1' selected = '0' text = 'Bloom' flex = '1')
+		sw-play : (bind = [[value = 'pt_bloom']] selected = '0')
+		 : (size = '13' margin = '-6 -6 3 3') : (hint = 'Toggle Bloom Calculation')
+	}
+
+	vbox : (next = '8') :
+	{
+		vbox : (hint = 'Bloom Mix') :
+		{
+			hbox : (size = '15') :
+			{
+				h3 : (text = 'Mix')
+				tf-v-r : (bind = [[value = 'pt_bloom_mix']] format = '%') : (size = '30')
+				res-f : (range = '0 100' step = '1' space = '3')
+			}
+			slider : (bind = [[value = 'pt_bloom_mix']] range = '0 1' snap = '0') : (size = '28')
+		}
+		
+		vbox : (hint = 'Bloom Size') :
+		{
+			hbox : (size = '15') :
+			{
+				h3 : (text = 'Size')
+				tf-v-r : (bind = [[value = 'pt_bloom_sca']] format = '%') : (size = '30')
+				res-f : (range = '0 100' step = '1' space = '3')
+			}
+			slider : (bind = [[value = 'pt_bloom_sca']] range = '0 1' snap = '0') : (size = '28')
+		}
+
+		vbox : (hint = 'Bloom Aspect Ratio') :
+		{
+			hbox : (size = '15') :
+			{
+				h3 : (text = 'Aspect')
+				tf-v-r : (bind = [[value = 'pt_bloom_asp']] format = '%') : (size = '30')
+				res-f : (range = '0 100' step = '1' space = '3')
+			}
+			slider : (bind = [[value = 'pt_bloom_asp']] range = '0 1' snap = '0') : (size = '28')
+		}
+
+		vbox : (hint = 'Bloom Aspect Ratio') :
+		{
+			hbox : (size = '15') :
+			{
+				h3 : (text = 'Threshold')
+				tf-v-r : (bind = [[value = 'pt_bloom_thr']] format = 'f.1' maxLength = '5') : (size = '45')
+				res-f : (range = '0 100' step = '0.1' space = '4')
+			}
+			slider : (bind = [[value = 'pt_bloom_thr']] range = '0 100' snap = '0') : (size = '28')
+		}
+	}
+
+	bar-h : (id = 'rr_sep1' hidden = '1')
+}

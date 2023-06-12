@@ -1,0 +1,170 @@
+vbox : (margin = '10 10 0 0' clip = '0') :
+{
+	vbox : (id = 'oedit_basic' clip = '0') :
+	{
+		//----------------
+		// Tool
+		//----------------
+		sw-h2 : (selected = '1' text = 'Tool' size = '28')
+		vbox : (next = '6') :
+		{
+			hbox : (size = '28' next = '1') :
+			{
+				button : (onClick = 'onew' text = 'New') : (flex = '1' next = '1') : (hint = 'New Object [CTRL+N]')
+				button : (onClick = 'odel' text = 'Delete') : (flex = '1') : (hint = 'Delete Objects [Backspace/Delete]')
+			}
+
+			hbox : (size = '28') :
+			{
+				button : (onClick = 'ocopy ref' text = 'Ref' ) : (flex = '1' next = '1') : (hint = 'Copy Objects as Reference [CTRL+SHIFT+C]')
+				button : (id = 'r2d'  onClick = 'oref2obj 0'  text = 'Ref-D' ) : (flex = '1') : (hint = 'Convert Reference to Duplicate [CTRL+T]')
+			}			
+		}
+		
+		hbox : (size = '24' next = '1') :
+		{
+			bn-tool : (text = '^x25cf' textFont = 'symbol' onClick = 'osel_all' ) : (flex = '1' next = '1') : (hint = 'Select All [CTRL+A]')
+			bn-tool : (text = '^x25d0' textFont = 'symbol' onClick = 'osel_inv' ) : (flex = '1' next = '1') : (hint = 'Select Inverse [CTRL+I]')
+			bn-tool : (text = '^x25cc' textFont = 'symbol' onClick = 'osel_none') : (flex = '1' next = '0') : (hint = 'Select None [CTRL+D]')
+		}
+
+		hbox : (size = '24') :
+		{
+			bn-tool : (text = '^51' onClick = 'ocopy' ) : (flex = '1' next = '1') : (hint = 'Copy Objects [CTRL+C]')
+			bn-tool : (text = '^52' onClick = 'opaste') : (flex = '1' next = '1') : (hint = 'Paste Objects [CTRL+V]')
+			bn-tool : (text = '^48' onClick = 'ocut'  ) : (flex = '1' next = '0') : (hint = 'Cut Objects as Reference [CTRL+X]')
+		}
+
+		//----------------
+		// Boolean Tool
+		//----------------
+		sw-h2 : (selected = '0' text = 'Boolean' size = '28')
+		vbox : (next = '8') :
+		{
+			hbox : (size = '24' next = '1') :
+			{
+				bn-tool : (text = '^124' onClick = 'ounion' textSize = '13 13') : (flex = '1' next = '1') : (hint = 'Union of Objects')
+				bn-tool : (text = '^126' onClick = 'ointer'	textSize = '13 13') : (flex = '1' next = '1') : (hint = 'Intersection of Objects')
+				bn-tool : (text = '^43'  onClick = 'ooper'	) : (flex = '1') : (hint = 'Select Operand Objects for Subtraction/Replacement')
+			}
+			hbox : (size = '24') :
+			{
+				bn-tool : (text = '^125' onClick = 'osub' textSize = '13 13') : (flex = '1' next = '1') : (hint = 'Subtraction of Objects')
+				bn-tool : (text = '^127' onClick = 'orep' textSize = '13 13') : (flex = '1' next = '1') : (hint = 'Replacement of Objects')
+				label : (flex = '1')
+			}
+		}
+	}
+
+	bar-h : (id = 'oedit_sep0') : (prev = '4' next = '4')
+
+	vbox : (id = 'oedit_tran' clip = '0') :
+	{
+		sw-h2 : (selected = '0' text = 'Transform' size = '28')
+		vbox :
+		{
+			hbox : (size = '24' next = '1') :
+			{
+				bn-tool : (text = '^51' onClick = 'm_copy' ) : (flex = '1' next = '1') : (hint = 'Copy Transform')
+				bn-tool : (text = '^38' onClick = 'm_paste i') : (flex = '1' next = '1') : (hint = 'Reset Rotation')
+				bn-tool : (text = '^96' onClick = 'omove g') : (flex = '1') : (hint = 'Move Objects to Ground [G]')
+			}
+			hbox : (size = '24') :
+			{
+				bn-tool : (text = '^52' onClick = 'm_paste') : (flex = '1' next = '1') : (hint = 'Paste Transform')
+				bn-tool : (text = 'R' textFont = 'std' textSize = '6.5 6.5' onClick = 'm_paste r') : (flex = '1' next = '1') : (hint = 'Paste Rotation')
+				bn-tool : (text = 'T' textFont = 'std' textSize = '6.5 6.5' onClick = 'm_paste t') : (flex = '1') : (hint = 'Paste Translation')
+			}
+		}
+
+		//----------------
+		// Position
+		//----------------
+		hbox : (clip = '0' size = '28') :
+		{
+			sw-h2 : (selected = '0' path = '1 1' text = 'Position' flex = '1')
+		}
+		vbox : (hint = 'Object Position : Move Objects [Arrow/Page]' size = '100') :
+		{
+			hbox : (flex = '1') : {button : tc-x : (text = 'X' onClick = 'set opos_x 0' size = '15' margin = '1 1 1 1' radius = '2' next = '1' hint = 'Reset X to 0') textField : (bind = [[value = 'opos_x']] enter = '1' maxLength = '10') : (margin = '0 0 1 1' flex = '1') res-i : (range = '-5000 5000' space = '2')}
+			hbox : (flex = '1') : {button : tc-y : (text = 'Y' onClick = 'set opos_y 0' size = '15' margin = '1 1 1 1' radius = '2' next = '1' hint = 'Reset Y to 0') textField : (bind = [[value = 'opos_y']] enter = '1' maxLength = '10') : (margin = '0 0 1 1' flex = '1') res-i : (range = '-5000 5000' space = '2')}
+			hbox : (flex = '1') : {button : tc-z : (text = 'Z' onClick = 'set opos_z 0' size = '15' margin = '1 1 1 1' radius = '2' next = '1' hint = 'Reset Z to 0') textField : (bind = [[value = 'opos_z']] enter = '1' maxLength = '10') : (margin = '0 0 1 1' flex = '1') res-i : (range = '-5000 5000' space = '2')}
+			hbox : (flex = '1') : (hint = 'Move Objects [Arrow/Page]') : {label : (text = 'T' size = '15' next = '1') textField : (onEnter = 'omove' text = 'z 10'  maxLength = '30') : (margin = '0 0 1 1' flex = '1' next = '11')}
+		}
+		
+		//----------------
+		// Rot
+		//----------------
+		sw-h2 : (selected = '0' text = 'Rotate 90' size = '28')
+		hbox : (size = '28') : (hint = 'Rotate Objects 90 Degrees [-/+]') :
+		{
+			bn-x : (onClick = 'orot x 1' text = 'X' flex = '1' next = '1')
+			bn-y : (onClick = 'orot y 1' text = 'Y' flex = '1' next = '1')
+			bn-z : (onClick = 'orot z 1' text = 'Z' flex = '1' next = '0')
+		}
+
+		//----------------
+		// Flip
+		//----------------
+		sw-h2 : (selected = '0' text = 'Flip' size = '28')
+		hbox : (size = '28') : (hint = 'Flip Objects') :
+		{
+			bn-x : (onClick = 'oflip x' text = 'X' flex = '1' next = '1')
+			bn-y : (onClick = 'oflip y' text = 'Y' flex = '1' next = '1')
+			bn-z : (onClick = 'oflip z' text = 'Z' flex = '1' next = '0')
+		}
+
+		//----------------
+		// Align
+		//----------------
+		sw-h2 : (selected = '0' text = 'Align' size = '28')
+		vbox : (next = '8') :
+		{
+			hbox : (size = '28' next = '1') : (hint = 'Align Objects to Maximum') :
+			{
+				bn-x : (onClick = 'oalign x +1' text = '+X') : (flex = '1' next = '1')
+				bn-y : (onClick = 'oalign y +1' text = '+Y') : (flex = '1' next = '1')
+				bn-z : (onClick = 'oalign z +1' text = '+Z') : (flex = '1' next = '0')
+			}
+
+			hbox : (size = '28' next = '1') : (hint = 'Align Objects to Center') :
+			{
+				bn-x : (onClick = 'oalign x 0' text = 'cX') : (flex = '1' next = '1')
+				bn-y : (onClick = 'oalign y 0' text = 'cY') : (flex = '1' next = '1')
+				bn-z : (onClick = 'oalign z 0' text = 'cZ') : (flex = '1' next = '0')
+			}
+
+			hbox : (size = '28' ) : (hint = 'Align Objects to Minimum') :
+			{
+				bn-x : (onClick = 'oalign x -1' text = '-X') : (flex = '1' next = '1')
+				bn-y : (onClick = 'oalign y -1' text = '-Y') : (flex = '1' next = '1')
+				bn-z : (onClick = 'oalign z -1' text = '-Z') : (flex = '1' next = '0')
+			}
+		}
+	}
+
+	bar-h : (id = 'oedit_sep1') : (prev = '4' next = '4')
+	
+	vbox : (id = 'oedit_obj' clip = '0') :
+	{
+		//----------------
+		// Hide
+		//----------------
+		sw-h2 : (selected = '0' text = 'Hide' size = '28')
+		hbox : (size = '28') :
+		{
+			button : (id = 'ohide' onClick = 'ohide 1' text = 'Hide' flex = '1' next = '1') : (hint = 'Hide Objects [CTRL+H]')
+			button : (id = 'oshow' onClick = 'ohide 0' text = 'Show' flex = '1') : (hint = 'Show Objects [CTRL+H]')
+		}
+	
+		//----------------
+		// Order
+		//----------------
+		sw-h2 : (selected = '0' text = 'Order' size = '28')
+		hbox : (size = '28') : (hint = 'Order : Render Order') :
+		{
+			button : (onClick = 'order +2' text = 'Bring to First*' flex = '1' next = '1') : (hint = 'Bring to First')
+			button : (onClick = 'order -2' text = 'Bring to Last*'  flex = '1') : (hint = 'Bring to Last')
+		}
+	}
+}

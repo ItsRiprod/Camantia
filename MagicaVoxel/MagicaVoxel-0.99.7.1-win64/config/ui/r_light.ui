@@ -1,0 +1,243 @@
+vbox : (id = 'menu_light') : (margin = '9 9 0 0' clip = '0') :
+{
+	//----------------
+	// Sun
+	//----------------
+	hbox : (size = '28' clip = '0') :
+	{
+		sw-h1 : (path = '1 1' selected = '1' text = 'Sun' flex = '1')
+
+		sw-sub : (bind = [[value = 'pt_sun_disk']] text = 'Disk') : (size = '30') : (hint = 'Show Sun Disk')
+		 
+		//sw-check : (bind = [[value = 'pt_sun_disk']] selected = '0') : (size = '12') : (hint = 'Show Sun Disk')
+	}
+	
+	vbox : (next = '8' clip = '0'):
+	{
+		h3 : (text = 'Angle') : (size = '15' flex = '0')
+		
+		hbox : (size = '28' prev = '3' next = '5' clip = '0') :
+		{
+			tf-v-c : (bind = [[value = 'pt_sun_p']] format = 'i' maxLength = '5')
+			 : (flex = '1' corner = '5')
+			 : (hint = 'Pitch Angle of Sun Light')
+			res-f-r : (range = '-90 90') : (size = '8' next = '4')
+
+			tf-v-c : (bind = [[value = 'pt_sun_y']] format = 'i' maxLength = '5')
+			 : (flex = '1' corner = '5')
+			 : (hint = 'Yaw Angle of Sun Light')
+			res-f-r : (range = '0 360' mod = '1') : (size = '8')
+		}
+		
+		vbox : (hint = 'Sun Area' prev = '3') :
+		{
+			hbox : (size = '15') :
+			{
+				h3 : (text = 'Area')
+				tf-v-r : (bind = [[value = 'pt_sun_area']] format = '%') : (size = '24')
+				res-f : (range = '0 100' step = '1' space = '2')
+			}
+			slider : (bind = [[value = 'pt_sun_area']]) : (size = '28')
+		}
+
+		vbox : (hint = 'Sun Intensity') :
+		{
+			hbox : (size = '15') :
+			{
+				h3 : (text = 'Intensity')
+				tf-v-r : (bind = [[value = 'pt_isun']] format = '%') : (size = '24')
+				res-f : (range = '0 500' step = '1' space = '2')
+			}
+			hbox : (size = '28') :
+			{
+				slider : (bind = [[value = 'pt_isun']]) : (flex = '1')
+				colpick : (bind = [[value = 'pt_sun_col']]) : (prev = '9' size = '16' margin = '0 0 8 8') : (hint = 'Sun Color')
+			}
+		}
+	}
+
+	bar-h
+	
+	//----------------
+	// Sky
+	//----------------
+	hbox : (size = '28' clip = '0' margin = '0 -4 0 0') :
+	{
+		sw-h1 : (path = '1 1' selected = '1' text = 'Sky' flex = '1')
+	}	
+
+	vbox : (next = '8') :
+	{
+		tab-l : (bind = [[value = 'pt_env']] index = '0' size = '27' next = '11' margin = '-3 -3 0 0') : (hint = 'Media Properties') :
+		{
+			hbox :
+			{
+				option : (select_id = '0' view = [['menu_uni']] text = '^78' textFont = 'icon' textSize = '14 15') : (flex = '1') : (hint = 'Uniform Lighting')
+				option : (select_id = '1' view = [['menu_atm']] text = '^80' textFont = 'icon' textSize = '14 15') : (flex = '1') : (hint = 'Atmospheric Scattering')
+				option : (select_id = '2' view = [['menu_ibl']] text = '^77' textFont = 'icon' textSize = '14 15') : (flex = '1') : (hint = 'Image Based Lighting')
+			}
+		}
+	
+		//----------------
+		// Uniform
+		//----------------
+		vbox : (id = 'menu_uni') : (hint = 'Sky Intensity') :
+		{
+			hbox : (size = '15') :
+			{
+				h3 : (text = 'Intensity')
+				tf-v-r : (bind = [[value = 'pt_isky']] format = '%') : (size = '24')
+				res-f : (range = '0 500' step = '1' space = '2')
+			}
+			hbox : (size = '28') :
+			{
+				slider : (bind = [[value = 'pt_isky']]) : (flex = '1')
+				colpick : (bind = [[value = 'pt_sky_col']]) : (prev = '9' size = '16' margin = '0 0 8 8') : (hint = 'Sky Color')
+			}
+		}
+		 
+		//----------------
+		// Atmosphere
+		//----------------
+		vbox : (id = 'menu_atm' hidden = '1') :
+		{
+			vbox :
+			{
+				vbox : (hint = 'Rayleigh Density') :
+				{
+					hbox : (size = '15') :
+					{
+						h3 : (text = 'Rayleigh')
+						tf-v-r : (bind = [[value = 'pt_ray_d']] format = '%') : (size = '24')
+						res-f-p
+					}
+
+					hbox : (size = '28') :
+					{
+						slider : (bind = [[value = 'pt_ray_d']]) : (flex = '1')
+						colpick : (bind = [[value = 'pt_ray_col']]) : (prev = '9' size = '16' margin = '0 0 8 8') : (hint = 'Rayleigh Color')
+					}
+				}
+
+				vbox : (hint = 'Mie Density') :
+				{
+					hbox : (size = '15') :
+					{
+						h3 : (text = 'Mie')
+						tf-v-r : (bind = [[value = 'pt_mie_d']] format = '%') : (size = '20')
+						res-f-p
+					}
+
+					hbox : (size = '28') :
+					{
+						slider : (bind = [[value = 'pt_mie_d']]) : (flex = '1')
+						colpick : (bind = [[value = 'pt_mie_col']]) : (prev = '9' size = '16' margin = '0 0 8 8') : (hint = 'Mie Color')
+					}
+				}
+
+				vbox : (hint = 'Ozone Density') :
+				{
+					hbox : (size = '15') :
+					{
+						h3 : (text = 'Ozone')
+						tf-v-r : (bind = [[value = 'pt_o3_d']] format = '%') : (size = '24')
+						res-f-p
+					}
+
+					hbox : (size = '28') :
+					{
+						slider : (bind = [[value = 'pt_o3_d']]) : (flex = '1')
+						colpick : (bind = [[value = 'pt_o3_col']]) : (prev = '9' size = '16' margin = '0 0 8 8') : (hint = 'Ozone Color')
+					}
+				}
+
+				vbox : (hint = 'Mie Phase')  :
+				{
+					hbox : (size = '28') :
+					{
+						h3 : (text = 'Phase')
+						tf-v-r : (bind = [[value = 'pt_mie_g']] maxLength = '5' format = 'f.2') : (size = '40')
+						res-f : (range = '-0.9 0.9' step = '0.01' space = '2')
+					}
+
+					slider : (bind = [[value = 'pt_mie_g']] range = '-0.9 0.9') : (size = '28')
+				}
+			}
+		}
+
+		//----------------
+		// IBL
+		//----------------
+		vbox : (id = 'menu_ibl' hidden = '1') :
+		{
+			hbox : (size = '15') : (hint = 'Intensity') :
+			{
+				h3 : (text = 'Intensity')
+				tf-v-r : (bind = [[value = 'pt_ibl_i']] format = '%') : (size = '24')
+				res-f-p
+			}
+			hbox : (size = '28') : (hint = 'Intensity') :
+			{
+				slider : (bind = [[value = 'pt_ibl_i']]) : (flex = '1')
+			}
+			hbox : (size = '15') : (hint = 'Rotation') :
+			{
+				h3 : (text = 'Rotation')
+				tf-v-r : (bind = [[value = 'pt_ibl_rot']] format = 'i') : (size = '24')
+				res-f : (range = '0 360' step = '1' space = '2')
+			}
+			hbox : (size = '28') : (hint = 'Rotation') :
+			{
+				slider : (bind = [[value = 'pt_ibl_rot']] range = '0 360') : (flex = '1')
+			}
+			h3 : (bind = [[text = 'pt_ibl_name']]) : (size = '20' flex = '0')
+			button : (subclass = 'image')
+			: (id = 'ibl_image' onClick = 'ibl [[<null>]]' bind = [[rot = 'pt_ibl_rot']])
+			: (bgColor = '100 100 100' bgColor-h = '160 160 160' bgColor-s = '0 0 0' border = '1' outline = '1')
+			: (margin = '4 0 0 0' size = '45.5' radius = '0') : (hint = 'Load HDR Image')
+		}
+	}
+
+	bar-h
+
+	//----------------
+	// Fog
+	//----------------
+	hbox : (size = '28' clip = '0' margin = '0 0 0 0') :
+	{
+		sw-h1 : (selected = '0' text = 'Fog' path = '1 1') : (flex = '1')		
+	}
+
+	vbox : (next = '8') :
+	{
+		vbox : (hint = 'Fog Density') :
+		{
+			hbox : (size = '15') :
+			{
+				h3 : (text = 'Density')
+				tf-v-r : (bind = [[value = 'pt_fog_et']] maxLength = '6' format = 'f.1') : (size = '40')
+				res-f : (range = '0 5000' step = '0.1' space = '1')
+			}
+
+			hbox : (size = '28') :
+			{
+				slider : (bind = [[value = 'pt_fog_et']] range = '0 10') : (flex = '1')
+				colpick : (bind = [[value = 'pt_fog_col']]) : (prev = '9' size = '16' margin = '0 0 8 8') : (hint = 'Fog Color')
+			}
+		}
+		
+		vbox : (hint = 'Fog Phase') : 
+		{
+			hbox : (size = '15') :
+			{
+				h3 : (text = 'Phase')
+				tf-v-r : (bind = [[value = 'pt_fog_eg']] maxLength = '5' format = 'f.2') : (size = '40')
+				res-f : (range = '-0.9 0.9' step = '0.01' space = '2')
+			}
+
+			slider : (bind = [[value = 'pt_fog_eg']] range = '-0.9 0.9') : (size = '28')
+		}
+	}
+
+	bar-h : (id = 'rl_sep0' hidden = '1')
+}

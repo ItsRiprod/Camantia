@@ -1,0 +1,123 @@
+hbox : (id = 'v_cam' align = '1' hidden = '1' margin = '0 0 3 3') :
+{
+	vbox : (size = '95' prev = '8') :
+	{
+		hbox : (size = '27' margin = '0 0 3 3') :
+		{
+			h3 : (text = 'Camera' textAlign = '1' flex = '1')
+			button : (onClick = 'cam save' text = 'S') : (size = '24' next = '1') : (hint = 'Save Camera [7]')
+			button : (onClick = 'cam load' text = 'L') : (size = '24') : (hint = 'Load Camera [8]')
+		}
+
+		opBox-l : (id = 'cam_slot' bind = [[value = 'cam_slot']] value = '0' flex = '1' prev = '3' next = '3') : (hint = 'Camera Slot') : 
+		{
+			vbox :
+			{
+				hbox : (flex = '1') :
+				{
+					option : (select_id = '0' text = '0' flex = '1')
+					option : (select_id = '1' text = '1' flex = '1')
+					option : (select_id = '2' text = '2' flex = '1')
+					option : (select_id = '3' text = '3' flex = '1')
+					option : (select_id = '4' text = '4' flex = '1')
+				}
+				hbox : (flex = '1') :
+				{
+					option : (select_id = '5' text = '5' flex = '1')
+					option : (select_id = '6' text = '6' flex = '1')
+					option : (select_id = '7' text = '7' flex = '1')
+					option : (select_id = '8' text = '8' flex = '1')
+					option : (select_id = '9' text = '9' flex = '1')
+				}
+			}						
+		}
+	}
+	
+	vbox : (size = '90') : (hint = 'Camera Center' prev = '12') :
+	{
+		hbox : (size = '27') :
+		{
+			h3 : (text = 'X')
+			tf-v-l : (bind = [[value = 'cam_x']] format = 'f.1' onEnter = 'cam x') : (corner = '5' size = '55')
+			res-f-r : (range = '-10000 10000') : (size = '8')
+		}
+		hbox : (size = '27') :
+		{
+			h3 : (text = 'Y')
+			tf-v-l : (bind = [[value = 'cam_y']] format = 'f.1' onEnter = 'cam y') : (corner = '5' size = '55')
+			res-f-r : (range = '-10000 10000') : (size = '8')
+		}
+		hbox : (size = '27') :
+		{
+			h3 : (text = 'Z')
+			tf-v-l : (bind = [[value = 'cam_z']] format = 'f.1' onEnter = 'cam z') : (corner = '5' size = '55')
+			res-f-r : (range = '-10000 10000') : (size = '8')
+		}
+	}
+
+	vbox : (size = '105' prev = '12') :
+	{
+		hbox : (size = '27') : (hint = 'Horizontal Movement Step') :
+		{
+			h3 : (text = 'dH')
+			tf-v-l : (bind = [[value = 'cam_dx']] format = 'f.2') : (corner = '5' size = '55')
+			res-f-r : (onResize = 'cam tx') : (size = '8') : (hint = 'Horizontal Movement : Small Step [SHIFT]')
+		}
+		hbox : (size = '27') : (hint = 'Vertical Movement Step') :
+		{
+			h3 : (text = 'dV')
+			tf-v-l : (bind = [[value = 'cam_dy']] format = 'f.2') : (corner = '5' size = '55')
+			res-f-r : (onResize = 'cam ty') : (size = '8') : (hint = 'Vertical Movement : Small Step [SHIFT]')
+		}
+		hbox : (size = '27') : (hint = 'Camera Zoom/Distance') :
+		{
+			h3 : (text = 'Zoom')
+			tf-v-l : (bind = [[value = 'cam_zoom']] format = 'f.1' onEnter = 'cam zoom') : (corner = '5' size = '55')
+			res-f-r : (onResize = 'cam tz') : (size = '8')
+		}
+	}
+
+	vbox : (size = '105') : (hint = 'Camera Orientation' prev = '12') :
+	{
+		hbox : (size = '27') :
+		{
+			h3 : (text = 'Pitch')
+			tf-v-l : (bind = [[value = 'cam_rx']] format = 'f.1' onEnter = 'cam rx') : (corner = '5' size = '55')
+			res-f-r : (range = '-90 90') : (size = '8')
+		}
+		hbox : (size = '27') :
+		{
+			h3 : (text = 'Yaw')
+			tf-v-l : (bind = [[value = 'cam_ry']] format = 'f.1' onEnter = 'cam ry') : (corner = '5' size = '55')
+			res-f-r : (range = '-180 180' mod = '1') : (size = '8')
+		}
+		hbox : (size = '27') :
+		{
+			h3 : (text = 'Roll')
+			tf-v-l : (bind = [[value = 'cam_rz']] format = 'f.1' onEnter = 'cam rz') : (corner = '5' size = '55')
+			res-f-r : (range = '-180 180' mod = '1') : (size = '8')
+		}
+	}
+
+	vbox : (size = '110') : (next = '8' prev = '12') :
+	{
+		hbox : (size = '27') : (hint = 'Camera Field of View') :
+		{
+			h3 : (text = 'Fov')
+			tf-v-l : (bind = [[value = 'cam_fov']] format = 'f.1' onEnter = 'cam fov') : (corner = '5' size = '55')
+			res-f-r : (range = '30 90' step = '1' space = '3') : (size = '8')
+		}
+		hbox : (size = '27') : (hint = 'Camera Move Speed') :
+		{
+			h3 : (text = 'Speed')
+			tf-v-l : (bind = [[value = 'cam_key']] format = 'f.2') : (corner = '5' size = '55')
+			res-f-r : (range = '0.01 100' step = '0.01' space = '2') : (size = '8')
+		}
+		hbox : (size = '27') : (hint = 'Camera Mouse Sensitivity') :
+		{
+			h3 : (text = 'Mouse')
+			tf-v-l : (bind = [[value = 'cam_mouse']] format = 'f.2') : (corner = '5' size = '55')
+			res-f-r : (range = '0.1 3.0' step = '0.01' space = '2') : (size = '8')
+		}
+	}
+}

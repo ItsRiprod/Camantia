@@ -1,0 +1,63 @@
+vbox : (id = 'menu_brush_opt' hidden = '1' clip = '0') : (margin = '10 10 0 0') :
+{
+	sw-h1 : (selected = '1' text = 'Display') : (size = '28')
+	vbox :
+	{
+		hbox : (size = '28') : (hint = 'High DPI') :
+		{
+			h3 : (text = 'HDPI')
+			sw-check : (onClick = 'ui dpi' selected = '1') : (size = '16')
+		}
+
+		hbox : (size = '28') : (hint = 'Show Ambient Occlusion') :
+		{
+			h3 : (text = 'AO')
+			sw-check : (bind = [[value = 'rm_b_ao']]) : (size = '16')
+		}
+
+		hbox : (size = '28') : (hint = 'Constant Shading') :
+		{
+			h3 : (text = 'Constant Shading')
+			sw-check : (bind = [[value = 'rm_b_const']]) : (size = '16')
+		}
+
+		hbox : (size = '28') : (hint = 'Fade Background Objects') :
+		{
+			h3 : (text = 'Fade')
+			sw-check : (bind = [[value = 'rm_b_fade']]) : (size = '16')
+		}
+
+		hbox : (size = '28' clip = '0') : (hint = 'Background Color') :
+		{
+			h3 : (text = 'Background')
+			colpick : (bind = [[value = 'rm_bg_col']] menuOffset = '16 0') : (size = '16' margin = '0 0 6 6')
+		}
+			
+		hbox : (size = '28' clip = '0') : (hint = 'Grid Color') :
+		{
+			h3 : (text = 'Grid')
+			colpick : (bind = [[value = 'rm_grid_col']] menuOffset = '16 0') : (size = '16' margin = '0 0 6 6')
+		}
+
+		hbox : (size = '28' clip = '0') : (hint = 'Edge Color') :
+		{
+			h3 : (text = 'Edge')
+			colpick : (bind = [[value = 'rm_edge_col']] menuOffset = '16 0') : (size = '16' margin = '0 0 6 6')
+		}
+
+		hbox : (size = '28' clip = '0') : (hint = 'Selection Color') :
+		{
+			h3 : (text = 'Selection')
+			colpick : (bind = [[value = 'rm_sel_col']] menuOffset = '16 0') : (size = '16' margin = '0 0 6 6')
+		}
+
+		hbox : (hint = 'Frame Grid Spacing') : (size = '28') :
+		{
+			h3 : (text = 'Frame')
+			
+			tf-v-r : (textSize = '7 7' enter = '1' maxLength = '4' bind = [[value = 'rm_space']]) : (corner = '15' size = '25' margin = '0 0 4 4')
+
+			res-i : (range = '1 1024' space = '4')  : (corner = '10')
+		}
+	}
+}

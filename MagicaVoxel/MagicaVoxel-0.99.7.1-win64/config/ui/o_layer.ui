@@ -1,0 +1,42 @@
+vbox : (id = 'left_oedit' clip = '0' margin = '6 6 0 0') :
+{
+	//----------------
+	// Type
+	//----------------
+	tab : (bind = [[value = 'b_obj']]) :
+	{																									
+		vbox : (prev = '2') :
+		{
+			hbox : (size = '24.5' next = '1') :
+			{
+				op-mode : (select_id = 'move' text = '^22' textSize = '15 15') : (flex = '1' next = '1') : (hint = 'Free Move [CTRL] : Duplicate [CTRL+SHIFT]')
+				op-mode : (select_id = 'patt' text = '^16' textSize = '14 14') : (flex = '1' next = '1') : (hint = 'Pattern [CTRL+ALT] : Rotate [-/+/0/9/Home]')
+				op-mode : (select_id = 'wrap' text = '^81' textSize = '14 14') : (flex = '1' next = '1') : (hint = 'Wrap [N] : Commit [Enter] : Cancel [Esc] : Two-sided [SHIFT]') : (view = [['v_obj_wrap']])
+				op-mode : (select_id = 'msel' text = '^12' textSize = '14 14') : (flex = '1' next = '0') : (hint = 'Marquee Select [M] : Add [SHIFT] : Remove [SHIFT+ALT]')
+			}
+		}
+	}
+
+	vbox : (id = 'v_obj_wrap' hidden = '1' prev = '3') :
+	{
+		hbox : (size = '28') : (hint = 'Wrap Spacing') :
+		{
+			tf-v-r : (bind = [[value = 'b_obj_wrap_space_x']] textColor = '255 255 255 180' maxLength = '3' enter = '1') : (flex = '1')
+			res-i : (range = '0 256' space = '5') : (next = '1' corner = '10' margin = '0 0 2 2')
+			tf-v-r : (bind = [[value = 'b_obj_wrap_space_y']] textColor = '255 255 255 180' maxLength = '3' enter = '1') : (flex = '1')
+			res-i : (range = '0 256' space = '5') : (next = '1' corner = '10' margin = '0 0 2 2')
+			tf-v-r : (bind = [[value = 'b_obj_wrap_space_z']] textColor = '255 255 255 180' maxLength = '3' enter = '1') : (flex = '1')
+			res-i : (range = '0 256' space = '5') : (next = '1' corner = '10' margin = '0 0 2 2')
+		}
+	}
+	
+	//----------------
+	// Layer
+	//----------------
+	hbox : (clip = '0' size = '28' margin = '4 4 0 0') :
+	{
+		sw-h1 : (selected = '1' path = '1 1' text = 'Layer') : (flex = '1')
+	}
+
+	sceneLayer : (clip = '0' margin = '-3 -3 0 0') : (id = 'sceneLayer' menu = 'popup_layer') : (hint = 'Set Selected/Current Layer : Menu [RButton]')
+}

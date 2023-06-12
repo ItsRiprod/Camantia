@@ -1,0 +1,188 @@
+vbox : (id = 'menu_mtl' clip = '0') : (margin = '9 9 0 0') :
+{
+	hbox : (size = '28' clip = '0') : (hint = 'Select Material [ALT+LButton]') :
+	{
+		sw-h1 : (path = '1 1' selected = '1' text = 'Material') : (flex = '1')
+		
+		sw-sub : (bind = [[value = 'pt_mod']] text = 'All') : (size = '30') : (hint = 'Modify All Materials')
+	}
+
+	vbox : (clip = '0' next = '3') :
+	{
+		tab-l : (bind = [[value = 'pt_mtl_t']] id = "mtl_menu" index = '0' margin = '-3 -3 0 0' size = '85' next = '4') :
+		{
+			hbox :
+			{
+				vbox : (flex = '1') :
+				{
+					option : (text = 'Diffuse'	) : (flex = '1') : (corner = '12' radius = '2') : (hint = 'Diffuse Material') : (view = [['menu_diffuse']]) : (select_id = '0')
+					option : (text = 'Emit'		) : (flex = '1') : (corner = '3' radius = '2') : (hint = 'Emissive Material') : (view = [['menu_emit']]) : (select_id = '1')
+					option : (text = 'Blend'	) : (flex = '1') : (hint = 'Blend Materials') : (view = [['menu_surf' 'menu_media' 'menu_metal' 'menu_tran']]) : (select_id = '2')
+				}
+				vbox : (flex = '1') :
+				{
+					option : (text = 'Metal'	) : (flex = '1') : (hint = 'Metal/Plastic Material') : (view = [['menu_surf' 'menu_metal']]) : (select_id = '3')
+					option : (text = 'Glass'	) : (flex = '1') : (hint = 'Glass Material') : (view = [['menu_surf' 'menu_tran' 'menu_media']]) : (select_id = '4')
+					option : (text = 'Cloud'	) : (flex = '1') : (hint = 'Cloud Material') : (view = [['menu_media']]) : (select_id = '5')
+				}
+			}
+		}
+
+		hbox : (size = '24' prev = '3' next = '6') :
+		{
+			bn-ic : (text = '^38' onClick = 'mtl_reset' delayed = '0' textSize = '15 15') : (flex = '1' next = '1') : (hint = 'Reset to Diffuse Material [CTRL+R]')
+			bn-ic : (text = '^51' onClick = 'mtl_copy'  delayed = '0' textSize = '15 15') : (flex = '1' next = '1') : (hint = 'Copy Material [CTRL+C]')
+			bn-ic : (text = '^52' onClick = 'mtl_paste' delayed = '0' textSize = '15 15') : (flex = '1') : (hint = 'Paste Material [CTRL+V]')	
+		}
+			
+		vbox : (id = 'menu_surf' hidden = '1') :
+		{
+			vbox :
+			{
+				vbox : (hint = 'Surface Roughness') :
+				{
+					hbox : (size = '15') :
+					{
+						h3 : (text = 'Roughness')
+						tf-v-r : (format = '%' bind = [[value = 'pt_rough']]) : (size = '25')
+						res-f-p
+					}
+					slider : (bind = [[value = 'pt_rough']]) : (size = '28')
+				}
+		
+				vbox : (hint = 'Refractive Index') :
+				{
+					hbox : (size = '15') :
+					{
+						h3 : (text = 'IOR')
+						tf-v-r : (format = 'f.2' maxLength = '5' bind = [[value = 'pt_ri']]) : (size = '35')
+						res-f-p : (range = '1 3' step = '0.01' space = '2')
+					}
+					slider : (bind = [[value = 'pt_ri']] range = '1 3' snap = '0.01') : (size = '28')
+				}
+
+				vbox : (id = 'menu_metal' hidden = '1') :
+				{	
+					vbox : (hint = 'Specular') :
+					{
+						hbox : (size = '15') :
+						{
+							h3 : (text = 'Specular')
+							tf-v-r : (format = 'f.2' bind = [[value = 'pt_sp']]) : (size = '30')
+							res-f-p : (range = '1 3' step = '0.01' space = '2')
+						}
+						slider : (bind = [[value = 'pt_sp']] range = '1 2' snap = '0.01') : (size = '28')
+					}
+
+					vbox : (hint = 'Metallic') :
+					{
+						hbox : (size = '15') :
+						{
+							h3 : (text = 'Metallic')
+							tf-v-r : (format = '%' bind = [[value = 'pt_metal']]) : (size = '30')
+							res-f-p
+						}
+						slider : (bind = [[value = 'pt_metal']]) : (size = '28')
+					}					
+				}
+
+				vbox : (id = 'menu_tran' hidden = '1' hint = 'Transparency') :
+				{
+					hbox : (size = '15') :
+					{
+						h3 : (text = 'Transparency')
+						tf-v-r : (format = '%' bind = [[value = 'pt_trans']] onEnter = 'set pt_mtl _trans') : (size = '20')
+						res-f-p
+					}
+					slider : (bind = [[value = 'pt_trans']]) : (size = '28')
+				}
+			}
+		}	
+		
+		vbox : (id = 'menu_media' hidden = '1' clip = '0' next = '3') :
+		{
+			opBox-l : (bind = [[value = 'pt_media']] index = '0' size = '27' prev = '6' next = '11' margin = '-3 -3 0 0') : (hint = 'Media Properties') :
+			{
+				hbox :
+				{
+					option : (text = '^39' textFont = 'icon' textSize = '12 13') : (flex = '1') : (hint = 'Absorb Media')					 : (select_id = '0')
+					option : (text = '^40' textFont = 'icon' textSize = '11 11') : (flex = '1') : (hint = 'Scatter Media')					 : (select_id = '1')
+					option : (text = '^62' textFont = 'icon' textSize = '12 12') : (flex = '1') : (hint = 'Emissive Media')					 : (select_id = '2')
+					option : (text = 'S'   textFont = 'std'  textSize = '7 7'  ) : (flex = '1') : (hint = 'Subsurface Scattering Media')		 : (select_id = '3')
+				}
+			}
+
+			vbox :
+			{
+				vbox : (hint = 'Media Density') :
+				{
+					hbox : (size = '15') :
+					{
+						h3 : (text = 'Density')					
+						tf-v-r : (format = 'ie3' bind = [[value = 'pt_d']] maxLength = '6') : (size = '40')					
+						res-f : (range = '0 5000' step = '1' space = '2')
+					}
+
+					slider : (bind = [[value = 'pt_d']] range = '0 0.1') : (size = '28')
+				}
+				
+				vbox : (id = 'menu_g' hint = 'Media Phase') :
+				{
+					hbox : (size = '15') :
+					{
+						h3 : (text = 'Phase')					
+						tf-v-r : (format = 'f.2' bind = [[value = 'pt_g']] maxLength = '5') : (size = '40')					
+						res-f : (range = '-0.9 0.9' step = '0.01' space = '2')
+					}
+
+					slider : (bind = [[value = 'pt_g']] range = '-0.9 0.9' snap = '0.01') : (size = '28')
+				}
+			}
+		}
+	
+		vbox : (id = 'menu_emit' hidden = '1' next = '3') :
+		{
+			//----------------
+			// Emission
+			//----------------
+			vbox : (hidden = '0') :
+			{
+				vbox : (hint = 'Light Emission') :
+				{
+					hbox : (size = '15') :
+					{
+						h3 : (text = 'Emission')
+						tf-v-r : (format = '%' bind = [[value = 'pt_emit']]) : (size = '30')
+						res-f-p
+					}
+					slider : (bind = [[value = 'pt_emit']]) : (size = '28')
+				}
+	
+				vbox : (hint = 'Radiant Flux') :
+				{
+					hbox : (size = '15') :
+					{
+						h3 : (text = 'Power')
+						tf-v-r : (format = 'i' bind = [[value = 'pt_flux']]) : (size = '30')
+						res-i
+					}
+					slider : (bind = [[value = 'pt_flux']] range = '0 4' snap = '1') : (size = '28')
+				}
+
+				vbox : (hint = 'Low Dynamic Range') :
+				{
+					hbox : (size = '15') :
+					{
+						h3 : (text = 'Ldr')
+						tf-v-r : (format = '%' bind = [[value = 'pt_ldr']]) : (size = '30')
+						res-f-p
+					}
+					slider : (bind = [[value = 'pt_ldr']]) : (size = '28')
+				}
+			}
+		}
+	}
+
+	bar-h : (id = 'rr_sep0' hidden = '1')
+}
+

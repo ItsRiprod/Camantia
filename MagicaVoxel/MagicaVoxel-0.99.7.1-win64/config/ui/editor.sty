@@ -1,0 +1,479 @@
+bg0 : (bgColor = '30 30 30')
+bg : (bgColor = '60 60 60')
+bg2 : (bgColor = '55 55 55')
+bg3 : (bgColor = '50 50 50')
+bg4 : (bgColor = '70 70 70' margin = '1 1 0 0')
+bg-m : (bgColor = '30 30 30')
+bg-l : (bgColor = '100 100 100' corner = '15' radius = '6' outline = '1')
+
+//tc-x : (textColor = '255 80 50 200')
+//tc-y : (textColor = '150 255 150 180')
+//tc-z : (textColor = '30 130 255 240')
+
+layer : (class = 'layer' barColor = '55 55 55' barColor-h = '45 45 45' barColor-s = '30 30 30')
+layer-dark : (class = 'layer' scroll = '-1 1' corner = '15' radius = '3' bgColor = '50 50 50' barColor = '80 80 80' barColor-h = '110 110 110' barColor-s = '130 130 130')
+
+tab : (class = 'opBox' subclass = 'tab')
+tab-l : tab : bg-l
+opBox-l: (class = 'opBox') : bg-l
+
+bar-v : (class = 'sp' size = '3' bgColor = '50 50 50' corner = '15' radius = '1.5')
+bar-v1 : (class = 'sp' size = '2' bgColor = '40 40 40' corner = '15' radius = '1' margin = '0 0 2 2')
+bar-h : (class = 'sp' bgColor = '52 52 52' margin = '-3 -3 0 0' size = '3')
+bar-h1 : (class = 'sp' bgColor = '52 52 52' margin = '-3 -3 0 0' size = '1')
+bar-h2 : (class = 'sp' bgColor = '100 100 100' margin = '1 1 0 0' size = '1')
+
+//======================================
+// label
+//======================================
+label : (class = 'label' textSize = '6.5 6.5' textColor = '255 255 255 160')
+h3 : (class = 'label' textAlign ='1' textFont = 'utf' textOffset = '4.0 0' textSize = '6.5 6.5' textColor = '255 255 255 100' flex = '1' next = '3')
+hint : (textFont = 'utf' textSize = '7.5 7.5' textAlign = '2' textColor = '255 255 255 140')
+
+//======================================
+// textfied
+//======================================
+textField : (class = 'textField' textFont = 'mono' ascii = '1' textAlign = '2')
+ : (textSize = '6.5 6.5' textColor = '255 255 255 150' bgColor = '45 45 45' corner = '15' radius = '3' margin = '0 0 2 2')
+
+tf-v-c : textField : (enter = '1' once = '1' maxLength = '5')
+tf-v-l : textField : (textAlign = '1' enter = '1' once = '1' maxLength = '10' border = '5')
+tf-v-r : textField : (textSize = '6 6' textColor = '255 255 255 100' textAlign = '3' enter = '1' maxLength = '4' border = '0')
+ : (bgColor = '0 0 0 0' corner = '0' radius = '0' margin = '0 0 0 0')
+
+tf-info : (class = 'textField' textFont = 'utf' textAlign = '1' enter = '1'  once = '1' maxLength = '64' quote = '1' border = '4')
+ : (textSize = '7 7' textColor = '255 255 255 150' bgColor = '45 45 45' corner = '15' radius = '3' margin = '0 0 2 2')
+
+tf-name : (class = 'textField' textFont = 'utf' textAlign = '2' enter = '1' once = '1' quote = '1')
+ : (textSize = '9 9' textColor = '255 255 255 180' bgColor = '0 0 0 0' border = '3')
+
+tf-size : textField: (enter = '1' once = '1' textSize = '7.5 7.5' bgColor = '35 35 35' corner = '0' margin = '0 0 0 0')
+
+tf-col : (class = 'textField' textFont = 'mono' ascii = '1' textAlign = '2' maxLength = '4' enter = '1' once = '1')
+ : (textSize = '5.5 5.5' bgColor = '0 0 0 0')
+
+tf-note : (class = 'textField' textFont = 'utf' textAlign = '3' maxLength = '32' enter = '1' once = '1' onEnter = 'note input')
+ : (textSize = '6.5 6.5' textColor = '255 255 255 150' bgColor = '0 0 0 0' corner = '0' margin = '0 0 0 0')
+
+//======================================
+// option
+//======================================
+option : (
+	class = 'option'
+	textFont	= 'utf'
+	textSize	= '6.5 6.5'
+	textAlign	= '2'
+
+	textColor	= '255 255 255 120'
+	textColor-h	= '255 255 255 200'
+	textColor-s	= '100 180 255 255'
+)
+
+tab-all : (
+	class = 'option'
+	text = 'All'	
+	hint = 'Show All Settings'
+	textSize = '8 8'
+
+	textColor	= '255 255 255 120'
+	textColor-h	= '255 255 255 200'
+	textColor-s	= '100 180 255 255' // '140 180 253 255'
+)
+
+tab-panel : (
+	class = 'option'
+	textFont = 'icon'
+	textSize = '15 15'
+
+	textColor	= '255 255 255 120'
+	textColor-h	= '255 255 255 200'
+	textColor-s	= '100 180 255 255' // '140 180 253 255'
+)
+
+op-mode : (
+	class = 'option'
+	textFont	= 'icon'	
+	textSize	= '16 16'
+	textAlign	= '2'
+
+	bgColor		= '75 75 75'
+	bgColor-h	= '90 90 90'
+	bgColor-s	= '105 105 105'
+
+	textColor	= '255 255 255 160'
+	textColor-h	= '255 255 255 220'
+	textColor-s	= '255 255 255 220'
+)
+
+op-brush : (
+	class = 'option'
+	textFont	= 'icon'
+	textSize	= '18 18'
+	textAlign	= '2'
+
+	//bgColor	= '172 172 172'
+	bgColor-h	= '172 172 172'
+	bgColor-s	= '195 195 195'
+	
+	textColor	= '10 10 10 160'
+
+	corner = '15'
+	radius = '1'
+)
+
+op-brush-sp : (
+	class = 'option'
+	style = '1'
+	textFont = 'icon'
+	textSize = '15 15'
+
+	bgColor-h	= '100 100 100'
+	bgColor-s	= '75 75 75'
+	textColor	= '255 255 255 180'
+	textColor-s = '255 200 95 255'
+)
+
+//======================================
+// switch
+//======================================
+switch : (
+	class = 'switch'
+	style = '1'
+	textFont = 'icon'
+	textSize = '17 17'
+
+	bgColor-h	= '100 100 100'
+	bgColor-s	= '75 75 75'
+	textColor	= '255 255 255 180'
+	textColor-s = '255 200 95 255'
+
+	corner = '15'
+	radius = '3'
+)
+
+sw-sub : (
+	class = 'switch'
+	style = '1'
+	textFont = 'utf'
+	textSize = '6 6'
+
+	bgColor-h	= '100 100 100'
+	bgColor-s	= '75 75 75'
+	textColor	= '255 255 255 160'
+	textColor-s = '255 200 95 255'
+	
+	corner = '15'
+	radius = '3'
+	margin = '0 0 3 3'
+)
+
+
+sw-h2 : (
+	class = 'switch'
+	subclass = 'panel'
+	style = '-2'
+	textFont = 'utf'
+	textOffset = '13 0'
+	textSize = '6.5 6.5'
+	
+	textColor = '140 140 140'
+	textColor-s = '170 170 170'
+)
+sw-h1 : sw-h2 : (margin = '-9 0 0 0')
+
+sw-orange : (
+	class = 'switch'
+	textSize	= '6.5 6.5'
+	textAlign	= '2'
+
+	bgColor		= '90 90 90'
+	bgColor-h	= '120 120 120'
+	bgColor-s	= '255 200 95'
+	textColor	= '10 10 10 240'
+
+	corner = '15'
+	radius = '3'
+)
+
+sw-bar : (
+	class = 'switch'
+	style = '2'
+	textSize = '17 17'
+
+	bgColor-h	= '100 100 100'
+	bgColor-s	= '75 75 75'
+	textColor	= '255 255 255 220'
+	textColor-d	= '255 255 255 70'
+)
+
+sw-col : (
+	class = 'switch'
+	style = '2'
+	textSize = '9 9'
+	textAlign = '2'
+
+	bgColor		= '10 10 10'
+	bgColor-h	= '30 30 30'
+	bgColor-s	= '10 10 10'
+	textColor	= '255 255 255 220'
+
+	radius = '4'
+)
+
+sw-view : (
+	class = 'switch'
+	subclass = 'panel'
+	style = '2'
+	textFont = 'symbol'
+	textSize = '11 11'
+	textAlign = '2'
+	delayed = '1'
+
+	bgColor		= '30 30 30'
+	bgColor-h	= '40 40 40'
+	bgColor-s	= '10 10 10'
+	textColor	= '255 255 255 230'
+
+	radius = '4'
+	corner = '15' 
+)
+
+sw-title : (
+	class = 'switch'
+	subclass = 'panel'
+	delayed = '1'
+	hint = '*Toggle Panel'
+	style = '2'
+	textFont = 'utf'
+	textSize = '8 8'
+
+	textColor   = '255 255 255 100'
+	textColor-h = '255 255 255 180'
+	textColor-s = '255 255 255 140'
+)
+
+sw-left : sw-title : (
+	textFont = 'symbol'
+	textSize = '10 10'
+	text = '^9654'
+)
+
+sw-right : sw-title : (
+	textFont = 'symbol'
+	textSize = '10 10'
+	text = '^9664'
+)
+
+sw-check : (
+	class = 'switch'
+	style = '1'
+	textFont = 'symbol'
+	text = '^9679'
+	text2 = '^9675'	
+	textSize = '8 8'
+	textAlign = '2'
+
+	textColor	= '120 120 120'
+	textColor-h	= '200 200 200'
+	textColor-s	= '120 220 160'
+)
+
+sw-mir : (
+	class = 'switch'
+	style = '0'
+	textFont = 'std'
+	textSize = '7.5 7'
+
+	bgColor		= '75 75 75'
+	bgColor-h	= '90 90 90'
+	bgColor-s	= '255 200 95 255'
+	textColor	= '255 255 255 80'
+	textColor-h	= '255 255 255 120'
+	textColor-s = '0 0 0 180'
+
+	radius = '2'
+)
+
+bn-mir : (
+	class = 'button'
+	style = '0'
+	textFont = 'icon'
+
+	bgColor		= '75 75 75'
+	bgColor-h	= '90 90 90'
+	bgColor-s	= '80 80 80'
+	textColor	= '255 255 255 120'
+
+	radius = '2'
+)
+
+sw-colpanel : (
+	class = 'switch'
+	style = '0'
+	textSize = '6.5 6.5'
+
+	textColor	= '255 255 255 70'
+	textColor-h	= '255 255 255 160'
+	textColor-s	= '120 190 160'
+)
+
+sw-play : (
+	class = 'switch'
+	style = '2' 
+	textFont = 'icon' 
+	textSize = '12 12'
+	text = '^41'
+	text2 = '^42' 
+
+	bgColor-h	= '100 100 100'
+	bgColor-s	= '75 75 75'
+	textColor	= '255 255 255 230'
+
+	corner = '15'
+	radius = '3'
+)
+
+//======================================
+// button
+//======================================
+button : (
+	class = 'button'
+	textFont	= 'utf'
+	textSize	= '6.5 6.5'
+
+	bgColor		= '75 75 75'
+	bgColor-h	= '100 100 100'
+	bgColor-s	= '65 65 65'
+	bgColor-d	= '65 65 65'
+
+	textColor	= '255 255 255 160'
+	textColor-d	= '255 255 255 40'
+
+	radius = '6'
+	corner = '15'
+	border = '3'
+	margin = '1 1 1 1'
+)
+
+button2 : (
+	class = 'button'
+	textFont	= 'utf'
+	textSize	= '6.5 6.5'
+
+	outline		= '1'
+	outline-h	= '0'
+	outline-s	= '0'
+
+	bgColor		= '80 80 80'
+	bgColor-s	= '65 65 65'
+	bgColor-d	= '65 65 65'
+
+	textColor	= '255 255 255 170'
+	textColor-d	= '255 255 255 40'
+
+	radius = '6'
+	corner = '15'
+	border = '3'
+	margin = '1 1 1 1'
+)
+
+bn-tool : button : (textFont = 'icon' textSize = '14 14')
+bn-x : button : tc-x
+bn-y : button : tc-y
+bn-z : button : tc-z
+
+bn-bar : (
+	class = 'button'
+	textFont = 'symbol'
+	textSize = '17 17'
+
+	bgColor-h	= '100 100 100'
+	bgColor-s	= '75 75 75'
+	textColor	= '255 255 255 180'
+	textColor-d	= '255 255 255 70'
+)
+
+bn-ic : bn-bar : (
+	class = 'button'
+	delayed = '1'
+	textFont = 'icon'
+
+	corner = '15'
+	radius = '3'
+)
+
+sw-ic : bn-ic : (
+	class = 'switch'
+	subclass = 'toggle'
+	style = '1'
+)
+
+bn-menu : (
+	class = 'button'
+	delayed    = '1'	
+	textFont	= 'utf'
+	textSize	= '6.5 6.5'
+
+	bgColor		= '30 30 30'
+	bgColor-h	= '60 60 60'
+	bgColor-s	= '40 40 40'
+
+	textColor	= '255 255 255 170'
+	textColor-h	= '255 255 255 180'
+	textColor-s	= '255 255 255 170'
+	textColor-d	= '255 255 255 40'
+
+	radius = '2'
+	border = '3'
+)
+
+bn-task : (
+	class = 'button'
+	textFont = 'utf'
+	textSize = '9 9'
+
+	bgColor		= '200 70 60'
+	bgColor-h	= '230 100 90'
+	bgColor-s	= '185 55 45'
+
+	textColor	= '255 255 255 255'
+)
+
+slider : (
+	class = 'slider'
+	range = '0 1'
+	
+	bgColor	= '0 0 0'
+	bgColor-h	= '50 50 50'
+	color		= '120 120 120'
+	color-h		= '120 120 120'
+	barSize		= '0.5'
+	radius		= '1'
+	cursor		= '◆'
+	cursorSize	= '3'
+	margin		= '1 1 0 0'
+	border		= '3'
+)
+
+sl-col : (class = 'slider' subclass = 'col')
+
+fileList : (
+	class = 'fileList'
+	textSize = '7 7'
+	
+	bgColor		= '40 40 40 0'
+	bgColor-s	= '90 90 90' //'130 155 132'//'181 124 179'
+
+	textColor	= '255 255 255 130'
+	textColor-s	= '255 255 255 220'
+
+	reselect	= '1'
+)
+
+colpick : (class = 'colpick' menu = 'popup_col' border = '0' corner = '15' radius = '2')
+res-f : (class = 'resizer' subclass = 'float' bnSize = '7' space = '5' size = '8' prev = '3')
+res-f-p : res-f : (range = '0 100' step = '1' space = '2')
+res-f-r : (class = 'resizer' subclass = 'float' bgColor = '80 80 80' step = '1' space = '2' axis = '0' margin = '0 0 2 2' corner = '10' radius = '3')
+res-i : (class = 'resizer' subclass = 'int' bnSize = '7' step = '1' space = '2' size = '8' prev = '3')
+res-i-col : res-i : (space = '2' size = '6')
+res-i-dcol : (class = 'resizer' subclass = 'color' bnSize = '7' axis = '0' range = '-255 255' step = '1' space = '1' size = '8')

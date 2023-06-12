@@ -1,0 +1,191 @@
+camera-control :
+{
+    // movement
+    'forward'               : { 'W' }
+    'backward'              : { 'S' }
+    'left'                  : { 'A' }
+    'right'                 : { 'D' }
+    'down'                  : { 'Q' }
+    'up'                    : { 'E' }
+
+    // drag left mouse button
+    'span'                  : { 'space' }
+    'zoom'                  : { 'Z' }
+    'focus'                 : { 'X' }
+    'rotate'                : { 'K' }
+}
+
+global :
+{
+    // command
+    'cmd undo'              : { 'Z'        'ctrl' 'repeat' }
+    'cmd redo'              : { 'Y'        'ctrl' 'repeat' }
+    'cmd redo'              : { 'Z'        'ctrl' 'shift' 'repeat' }
+    
+    // project
+    'new'                   : { 'P'        'ctrl' }
+    'dup'                   : { 'P'        'ctrl' 'shift' }
+    'open'                  : { 'O'        'ctrl' }
+    'save'                  : { 'S'        'ctrl' }
+    'saveas'                : { 'S'        'ctrl' 'shift' }
+    
+    'cmd console'           : { 'F1' } // activate console
+    'set pt_mode ^'         : { 'F2' } // switch between modeler and renderer
+    'reset'                 : { 'F12' }
+    
+    // prev/next color
+    'index -1'              : { '1' 'repeat' }
+    'index -2'              : { '2' 'repeat' }
+    
+    // camera
+    'cam focus'             : { '5' }
+    'cam face'              : { '5'        'ctrl' }
+    
+    // screenshot
+    'snap scene'            : { '6' } 
+    'snap'                  : { '6'        'ctrl' }
+    
+    'cam save'              : { '7' } 
+    'cam load'              : { '8' }
+    
+    'set cam_slot 0'        : { 'NUMPAD0' }
+    'set cam_slot 1'        : { 'NUMPAD1' }
+    'set cam_slot 2'        : { 'NUMPAD2' }
+    'set cam_slot 3'        : { 'NUMPAD3' }
+    'set cam_slot 4'        : { 'NUMPAD4' }
+    'set cam_slot 5'        : { 'NUMPAD5' }
+    'set cam_slot 6'        : { 'NUMPAD6' }
+    'set cam_slot 7'        : { 'NUMPAD7' }
+    'set cam_slot 8'        : { 'NUMPAD8' }
+    'set cam_slot 9'        : { 'NUMPAD9' }
+    
+    // anim
+    'astep time -1'         : {'COMMA'  'repeat'}
+    'astep time +1'         : {'PERIOD' 'repeat'}
+    'astep key -1'          : {'COMMA'  'ctrl' 'repeat'}
+    'astep key +1'          : {'PERIOD' 'ctrl' 'repeat'}
+    'astep key -2'          : {'COMMA'  'ctrl' 'shift'}
+    'astep key +2'          : {'PERIOD' 'ctrl' 'shift'}
+
+    // ui
+    'ui inc -0.125'         : { 'MINUS'    'ctrl' 'repeat' }
+    'ui inc +0.125'         : { 'PLUS'     'ctrl' 'repeat' }
+}
+
+model-editor :
+{
+    // brush mode
+    'set b_mode vox'        : { 'V' }
+    'set b_mode face'       : { 'F' }
+    'set b_mode box'        : { 'B' }
+    'set b_mode geo' 	    : { 'L' }
+    'set b_mode code'	    : { 'C' }
+    'set b_mode pattern'    : { 'P' } 
+    
+    // brush type
+    'set b_type attach'     : { 'T' }
+    'set b_type erase'      : { 'R' } 
+    'set b_type paint'      : { 'G' }    
+    'set b_type msel'       : { 'M' } // marquee select
+    'set b_type asel'       : { 'N' } // region select 
+
+    // selection
+    'sel_inv'               : { 'I'        'ctrl' }
+    'sel_none'              : { 'D'        'ctrl' }
+    'sel_all'               : { 'A'        'ctrl' }
+
+    // clipboard
+    'copy'                  : { 'C'        'ctrl' }
+    'paste'                 : { 'V'        'ctrl' }
+    'cut'                   : { 'X'        'ctrl' } 
+
+    // edit
+    'full'                  : { 'U' }
+    'fill'                  : { 'I' }
+    'zero'                  : { 'BACK' }
+    'zero'                  : { 'DELETE' }
+
+    // view
+    'set rm_b_edge ^'       : { 'E'        'ctrl' }
+    'set rm_b_grid ^'       : { 'G'        'ctrl' }
+    'set rm_b_frame ^'      : { 'F'        'ctrl' }
+    'set rm_b_bo ^'         : { 'B'        'ctrl' }
+    'set rm_b_sw ^'         : { 'W'        'ctrl' }
+
+    // scene graph level
+    'olevel -2'             : { 'TAB' }
+    'olevel -1'             : { 'TAB'      'shift' }
+}
+
+world-editor :
+{
+    // brush mode
+    'set b_obj msel'        : { 'M' }
+    'set b_obj wrap'        : { 'N' }
+    'set b_obj patt'        : { 'P' }
+    
+    // object
+    'onew'                  : { 'N'        'ctrl' }
+    'odel'                  : { 'BACK' }
+    'odel'                  : { 'DELETE' }
+    'ogroup'                : { 'R'        'ctrl' } 
+    'oungroup'              : { 'R'        'ctrl' 'shift' }
+
+    // scene graph level
+    'olevel -2'             : { 'TAB' }
+    'olevel -1'             : { 'TAB'      'shift' }
+
+    // selection
+    'osel_none'             : { 'D'        'ctrl' } 
+    'osel_inv 0'            : { 'I'        'ctrl' } 
+    'osel_inv 1'            : { 'I'        'ctrl' 'shift'} 
+    'osel_all 0'            : { 'A'        'ctrl' }
+    'osel_all 1'            : { 'A'        'ctrl' 'shift' }
+
+    // clipboard
+    'ocopy'                 : { 'C'        'ctrl' } 
+    'ocopy ref'             : { 'C'        'ctrl' 'shift' }
+    'opaste'                : { 'V'        'ctrl' }
+    'ocut'                  : { 'X'        'ctrl' } 
+    'oref2obj 0'            : { 'T'        'ctrl' } 
+    'oref2obj 1'            : { 'T'        'ctrl' 'shift' } 
+
+    // move
+    'omove x -1'            : { 'LEFT'      'repeat' } 
+    'omove x +1'            : { 'RIGHT'     'repeat' } 
+    'omove y -1'            : { 'DOWN'      'repeat' } 
+    'omove y +1'            : { 'UP'        'repeat' } 
+    'omove z -1'            : { 'PAGEDOWN'  'repeat' }
+    'omove z +1'            : { 'PAGEUP'    'repeat' }
+    'omove g'               : { 'G' } 
+
+    // rotate
+    'orot z -1'             : { 'PLUS' } 
+    'orot z +1'             : { 'MINUS' } 
+    'orot x -1'             : { '9' }
+    'orot x +1'             : { '0' } 
+
+    // hide
+    'ohide 2'               : { 'H'        'ctrl' }
+
+    // view
+    'set rm_b_edge ^'       : { 'E'        'ctrl' }
+    'set rm_b_grid ^'       : { 'G'        'ctrl' } 
+    'set rm_b_bo ^'         : { 'B'        'ctrl' } 
+    'set rm_b_wire ^'       : { 'M'        'ctrl' }
+}
+
+renderer :
+{
+    // material clipboard
+    'mtl_reset'             : { 'R'        'ctrl' }
+    'mtl_copy'              : { 'C'        'ctrl' }
+    'mtl_paste'             : { 'V'        'ctrl' }
+
+    // view
+    'set pt_b_edge ^'       : { 'E'        'ctrl' }
+    'set pt_b_grid ^'       : { 'G'        'ctrl' }
+    'set pt_b_gd ^'         : { 'U'        'ctrl' }
+    'set pt_b_sw ^'         : { 'W'        'ctrl' }
+    'set pt_b_bg_c ^'       : { 'B'        'ctrl' }
+}
