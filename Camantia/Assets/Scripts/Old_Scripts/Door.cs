@@ -6,7 +6,6 @@ public class Door : MonoBehaviour
 {
     public Transform start, end;
     public GameObject Button;
-    
 
     void Start()
     {
