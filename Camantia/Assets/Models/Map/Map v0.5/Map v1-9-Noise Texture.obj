@@ -4,7 +4,7 @@
 o Noise Texture
 
 # material
-mtllib Map v2-9-Noise Texture.mtl
+mtllib Map v1-9-Noise Texture.mtl
 usemtl palette
 
 # normals
