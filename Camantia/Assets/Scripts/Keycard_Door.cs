@@ -9,6 +9,8 @@ public class Keycard_Door : MonoBehaviour
     [SerializeField] private bool openTrigger = false;
     [SerializeField] private bool closeTrigger = false;
     private bool isOpen = false;
+    public Inventory inventory;
+    public Item keycard;
 
     
 
@@ -23,7 +25,9 @@ public class Keycard_Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !isOpen)
+       
+
+        if (Input.GetKeyDown(KeyCode.E) && !isOpen && inventory.GetAmountOfItem(keycard) >= 1)
         
         {
             animDoor.Play("Door_Open_Keycard", 0, 0.0f);
