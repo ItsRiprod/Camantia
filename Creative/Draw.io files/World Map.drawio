@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2023-06-28T01:53:44.750Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.5.1 Chrome/112.0.5615.204 Electron/24.6.0 Safari/537.36" etag="eNDqDR6H3Uuqfbz6-Y-E" version="21.5.1" type="device">
+<mxfile host="Electron" modified="2023-06-29T01:05:31.447Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.5.0 Chrome/112.0.5615.204 Electron/24.5.1 Safari/537.36" etag="ciRdRcYoTYz-auZQQ719" version="21.5.0" type="device">
   <diagram name="Page-1" id="DQkH6fAFyNHh7SbnEvW0">
-    <mxGraphModel dx="17600" dy="10420" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="23760" dy="17380" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="YD4TGK5k_s0ClnTUvykW-60" value="Sizing Correction" style="locked=1;" parent="0" />
@@ -91,7 +91,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="YD4TGK5k_s0ClnTUvykW-54" value="Buildings" parent="0" visible="0" />
+        <mxCell id="YD4TGK5k_s0ClnTUvykW-54" value="Buildings" parent="0" />
         <mxCell id="YD4TGK5k_s0ClnTUvykW-475" value="" style="group;rotation=106;" parent="YD4TGK5k_s0ClnTUvykW-54" vertex="1" connectable="0">
           <mxGeometry x="-505" y="2020" width="180" height="165" as="geometry" />
         </mxCell>
@@ -159,6 +159,12 @@
         </mxCell>
         <mxCell id="YD4TGK5k_s0ClnTUvykW-494" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;rotation=106;" parent="YD4TGK5k_s0ClnTUvykW-490" vertex="1">
           <mxGeometry x="83" y="-58" width="48" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="ta1yHnUf45n_oJS92PwP-2" value="&lt;br&gt;" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.polygon;polyCoords=[[0.28,0.1],[0.41,0.39],[0.87,0.41],[1,0.55],[0.89,0.71],[0.51,0.85],[0.21,0.67],[0,0.25]];polyline=0;fillColor=#6B70FF;fillStyle=auto;fontSize=102;" vertex="1" parent="YD4TGK5k_s0ClnTUvykW-54">
+          <mxGeometry x="-3323" y="1837" width="10327" height="6460" as="geometry" />
+        </mxCell>
+        <mxCell id="ta1yHnUf45n_oJS92PwP-4" value="City" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=999;" vertex="1" parent="YD4TGK5k_s0ClnTUvykW-54">
+          <mxGeometry x="693" y="5907" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
