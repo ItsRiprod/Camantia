@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2023-06-29T01:05:31.447Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.5.0 Chrome/112.0.5615.204 Electron/24.5.1 Safari/537.36" etag="ciRdRcYoTYz-auZQQ719" version="21.5.0" type="device">
+<mxfile host="Electron" modified="2023-07-01T03:30:59.089Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.5.1 Chrome/112.0.5615.204 Electron/24.6.0 Safari/537.36" etag="LdUzrOOhJjTivMulFEiP" version="21.5.1" type="device">
   <diagram name="Page-1" id="DQkH6fAFyNHh7SbnEvW0">
-    <mxGraphModel dx="23760" dy="17380" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="17600" dy="10420" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="YD4TGK5k_s0ClnTUvykW-60" value="Sizing Correction" style="locked=1;" parent="0" />
@@ -53,7 +53,7 @@
               <mxPoint x="1130" y="6940" />
               <mxPoint x="-2500" y="5050" />
               <mxPoint x="-2040" y="2700" />
-              <mxPoint x="-1894" y="1567" />
+              <mxPoint x="-2000" y="880" />
               <mxPoint x="-920" y="-13" />
               <mxPoint x="-280" y="-500" />
             </Array>
