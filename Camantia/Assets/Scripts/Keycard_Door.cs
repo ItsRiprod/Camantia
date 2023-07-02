@@ -7,8 +7,6 @@ public class Keycard_Door : MonoBehaviour
 {
 
     [SerializeField] private Animator animDoor = null;
-    [SerializeField] private bool openTrigger = false;
-    [SerializeField] private bool closeTrigger = false;
     private bool isOpen = false;
     public Inventory inventory;
     public Item keycard;
@@ -44,6 +42,9 @@ public class Keycard_Door : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && !isOpen && inventory.GetAmountOfItem(keycard) >= 1)
         
         {
+ 
+            Debug.Log("Open!");
+
             RaycastHit hit;
             if (Physics.Raycast(lookingAt.transform.position,lookingAt.transform.TransformDirection(Vector3.forward), out hit, doorOpenRange)){
                 animDoor.Play("Door_Open_Keycard", 0, 0.0f);
