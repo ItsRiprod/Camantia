@@ -44,10 +44,10 @@ public class InventoryManager : MonoBehaviour
                 Inventory.instance_.RemoveItemAmount(itemToRemove, amountToRemove);
             }
         }
-        if (Input.GetKeyDown(KeyCode.A))
+/*        if (Input.GetKeyDown(KeyCode.A))
         {
             Inventory.instance_.AddItem(itemToAdd, 5);
-        }
+        }*/
         ////////////////////THIS IS ONLY FOR TESTING PURPOSES AND CAN BE MOVED IF WANTED TO////////////////////
         ///
     }
