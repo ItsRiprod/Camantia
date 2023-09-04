@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class MouseLook : MonoBehaviour
+public class MouseLook : NetworkBehaviour
 {
     
     public float mouseSes = 500f;
@@ -17,7 +18,9 @@ public class MouseLook : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+
     {
+        if (!IsOwner) return;
         float mouseX = Input.GetAxis("Mouse X") * mouseSes * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSes * Time.deltaTime;
 
