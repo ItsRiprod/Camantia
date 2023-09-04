@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
+using System.Globalization;
+
 public class PlayerMovement : NetworkBehaviour
 {
-
-    private CharacterController controller;  
+    public GameObject cam;
+    public GameObject body;
+    private CharacterController controller;
 
     public float speed = 14f;
 
@@ -18,6 +21,8 @@ public class PlayerMovement : NetworkBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     bool isGrounded;
+
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -25,7 +30,19 @@ public class PlayerMovement : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsOwner) return;
+
+        if (!IsOwner)
+        {
+            cam.GetComponent<MouseLook>().enabled = false;
+            
+            return;
+        }
+
+        if (IsOwner)
+        {
+            cam.SetActive(true);
+            body.SetActive(false);
+        }
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         

@@ -7,15 +7,15 @@ public class MouseLook : NetworkBehaviour
 {
     
     public float mouseSes = 500f;
+    [SerializeField]
     private Transform playerBody;
 
     float xRotation = 0;
     // Start is called before the first frame update
     void Start()
     {
-        if (!IsOwner) return;
-        if (!IsLocalPlayer) return;
-        playerBody = transform.parent.transform;
+
+        playerBody = transform.parent.parent.transform;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -23,7 +23,8 @@ public class MouseLook : NetworkBehaviour
     void Update()
 
     {
-        if (!IsOwner) return;
+
+        //if (!IsOwner) return;
         
         float mouseX = Input.GetAxis("Mouse X") * mouseSes * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSes * Time.deltaTime;
