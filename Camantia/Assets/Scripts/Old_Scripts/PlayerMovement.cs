@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayerMovement : NetworkBehaviour
 {
 
-    public CharacterController controller;
+    private CharacterController controller;  
+
     public float speed = 14f;
 
     Vector3 velocity;
@@ -17,7 +18,10 @@ public class PlayerMovement : NetworkBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     bool isGrounded;
-
+    private void Start()
+    {
+        controller = GetComponent<CharacterController>();
+    }
     // Update is called once per frame
     void Update()
     {
