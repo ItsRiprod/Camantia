@@ -84,7 +84,7 @@ public class InventoryManager : MonoBehaviour
             }
 
 
-
+            Debug.Log(Inventory.instance_.inventoryItemArray);
             if (Inventory.instance_.inventoryItemArray[index] != null) //Checking if there should be a Item in the current Inventory slot
             {
                 if (Inventory.instance_.inventoryItemArray[index].GetComponent<Item_script>().currentHeldItemProperties != null) //Does this Item already have a modified Item value?

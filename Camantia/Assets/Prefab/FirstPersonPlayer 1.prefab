@@ -91,6 +91,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  STUCK: {fileID: 0}
 --- !u!114 &4203856567564711275
 MonoBehaviour:
   m_ObjectHideFlags: 0

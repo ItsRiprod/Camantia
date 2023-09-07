@@ -18,7 +18,7 @@ public class ItemPickup : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Equals))
         {
-            Debug.LogError("+");
+            Debug.Log(objToAdd.name);
             inventory.AddItem(objToAdd, 1);
 
         }

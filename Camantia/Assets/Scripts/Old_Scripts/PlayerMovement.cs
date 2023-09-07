@@ -14,6 +14,7 @@ public class PlayerMovement : NetworkBehaviour
     public float speed = 14f;
 
     Vector3 velocity;
+    Vector3 spawn;
     public float gravity = -9.8f;
     public float jumpHeight = 2;
 
@@ -22,14 +23,21 @@ public class PlayerMovement : NetworkBehaviour
     public LayerMask groundMask;
     bool isGrounded;
 
+    public Transform STUCK;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
     }
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        controller = GetComponent<CharacterController>();
+    }
     // Update is called once per frame
     void Update()
     {
+
 
         if (!IsOwner)
         {
@@ -53,6 +61,7 @@ public class PlayerMovement : NetworkBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
 
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -63,5 +72,7 @@ public class PlayerMovement : NetworkBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+
     }
 }

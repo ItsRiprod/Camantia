@@ -26,9 +26,12 @@ public class Inventory : MonoBehaviour
         int totalAmountOfItemInInventory = 0;
         for (int i = 0; i < inventoryItemArray.Length; i++)
         {
+            Debug.Log("Made it this far");
             //Lets see if this space has a item in it
             if (inventoryItemArray[i] != null)
             {
+                Debug.Log("Item wasn't null");
+               // Debug.Log(inventoryItemArray[i].GetComponent<Item_script>().object_item.itemName);
                 //It does! Lets see if it is the same Item we are looking for.
                 if (inventoryItemArray[i].GetComponent<Item_script>().currentHeldItemProperties.itemName == item.itemName)
                 {
@@ -149,6 +152,8 @@ public class Inventory : MonoBehaviour
                             if (diff >= amount) //If out amount is smaller, then there is place for us to squeeze the Items in there
                             {
                                 inventoryItem.currentAmount += amount; //Set the Item in inventory amount up!
+                              
+                                //Debug.Log(inventoryManager.itemToRemove);
                                 inventoryManager.SetCells(); //Update the Inventory visually
                                 return;
                             }
